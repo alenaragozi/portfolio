@@ -1,69 +1,286 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Alena Ragozina — Portfolio</title>
-  <meta name="description" content="Strategic Marketing Leader Portfolio" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Alena Ragozina — Portfolio</title>
+<meta name="description" content="Strategic Marketing Leader Portfolio" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0c0f;--panel:#0f1219;--card:#12141a;--muted:#8c919f;--text:#e7e9ee;
+  --accent:#58d0ff;--accent2:#a9ff68;--ring:rgba(88,208,255,.35);
+  --radius:18px;--shadow:0 10px 30px rgba(0,0,0,.35)
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+a:hover{filter:brightness(1.15)}
+/* HERO */
+.hero{padding:44px 20px 28px;border-bottom:1px solid #1b1f2a;background:linear-gradient(180deg,#0c0f15 0%,#0b0c0f 100%)}
+.hero-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:center}
+.hero-photo{width:220px;height:220px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 0 0 8px var(--ring);background:#0f1219}
+.lang-switch{display:flex;gap:8px;margin-bottom:12px}
+.lang-btn{border:1px solid #2a2f3d;background:#151822;color:var(--text);padding:8px 10px;border-radius:999px;cursor:pointer}
+.lang-btn.active{border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+h1{margin:0 0 8px;font-size:34px}
+.subtitle{margin:0 0 10px;color:var(--muted);font-weight:600}
+.lede{margin:0 0 16px;max-width:70ch}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 14px;border-radius:12px;background:var(--accent);color:#061018;font-weight:700}
+.btn.ghost{background:transparent;border:1px solid #2a2f3d;color:var(--text)}
+/* FILTERS */
+.section{padding:28px 20px}
+.wrap{max-width:1120px;margin:0 auto}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:#151822;border:1px solid #2a2f3d;color:var(--text);padding:8px 12px;border-radius:999px;cursor:pointer}
+.chip.active,.chip:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+.search{margin:18px 0}
+.search input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #2a2f3d;background:#0f1219;color:var(--text);outline:none}
+.search input:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+/* CARDS */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid #1e2433;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.card-media{position:relative;aspect-ratio:16/9;background:#0e1118}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block}
+.card .taglist{position:absolute;left:10px;bottom:10px;display:flex;gap:6px;flex-wrap:wrap}
+.tag{background:rgba(0,0,0,.55);border:1px solid #2a2f3d;color:#d7dbe7;border-radius:999px;padding:4px 8px;font-size:12px}
+.card-body{padding:14px}
+.card h3{margin:0 0 6px;font-size:18px}
+.meta{color:var(--muted);font-size:13px;margin-bottom:8px}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:6px;font-size:14px;margin:6px 0}
+.kv .k{color:var(--muted)}
+.actions{display:flex;gap:8px;margin-top:auto;padding:0 14px 14px}
+.link{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid #2a2f3d}
+.link:hover{border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+.badge{margin-left:auto;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#061018;border-radius:999px;padding:6px 10px;font-weight:700}
+/* CONTACTS */
+.contacts{padding:40px 20px;border-top:1px solid #1b1f2a;margin-top:30px;background:#0c0f14}
+.contacts .wrap{display:grid;place-items:center;text-align:center}
+.contact-list{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;padding:0;margin:8px 0 10px;list-style:none}
+.small{color:var(--muted);font-size:13px}
+@media (max-width:960px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-photo{margin:0 auto}
+  .grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){.grid{grid-template-columns:1fr}}
+</style>
 </head>
+
 <body>
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-media">
-        <img src="assets/cover.jpg" alt="Alena Ragozina" class="hero-photo">
+<!-- ================= PROFILE (редактируй тексты/фото/контакты) ================ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-media">
+      <!-- Поставь своё фото: локально `assets/cover.jpg` или полную ссылку -->
+      <img class="hero-photo" src="assets/cover.jpg" alt="Alena Ragozina"
+           onerror="this.src='data:image/svg+xml;utf8,<?xml version=&quot;1.0&quot;?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;440&quot; height=&quot;440&quot;><defs><linearGradient id=&quot;g&quot; x1=&quot;0&quot; x2=&quot;1&quot; y1=&quot;0&quot; y2=&quot;1&quot;><stop stop-color=&quot;%230f141f&quot;/><stop offset=&quot;1&quot; stop-color=&quot;%23191927&quot;/></linearGradient></defs><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;url(%23g)&quot;/></svg>';">
+    </div>
+    <div class="hero-text">
+      <div class="lang-switch" role="group" aria-label="Language toggle">
+        <button id="lang-ru" class="lang-btn active">RU</button>
+        <button id="lang-en" class="lang-btn">EN</button>
       </div>
-      <div class="hero-text">
-        <div class="lang-switch" role="group" aria-label="Language toggle">
-          <button id="lang-ru" class="lang-btn active">RU</button>
-          <button id="lang-en" class="lang-btn">EN</button>
-        </div>
-        <h1 data-i18n="name">Алёна Рагозина</h1>
-        <p class="subtitle" data-i18n="subtitle">Стратег по маркетингу | Запуски продуктов | Рост и бренд</p>
-        <p class="lede" data-i18n="lede">Лидер маркетинга с опытом в IT, финтехе, FMCG и спорте. Строю стратегии, GTM, повышаю CR/LTV, снижаю CAC. Руководила командами до 10 человек.</p>
-        <div class="hero-cta">
-          <a href="#cases" class="btn" data-i18n="viewCases">Смотреть кейсы</a>
-          <a href="#contacts" class="btn ghost" data-i18n="contactMe">Связаться</a>
-        </div>
+      <h1 data-i18n="name">Алёна Рагозина</h1>
+      <p class="subtitle" data-i18n="subtitle">Стратег по маркетингу | Запуски продуктов | Рост и бренд</p>
+      <p class="lede" data-i18n="lede">Лидер маркетинга с опытом в IT, финтехе, FMCG и спорте. Строю стратегии, GTM, повышаю CR/LTV, снижаю CAC. Руководила командами до 10 человек.</p>
+      <div class="hero-cta">
+        <a href="#cases" class="btn" data-i18n="viewCases">Смотреть кейсы</a>
+        <a href="#contacts" class="btn ghost" data-i18n="contactMe">Связаться</a>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <section class="filters" id="cases">
-    <div class="filters-inner">
-      <h2 data-i18n="casesTitle">Кейсы</h2>
-      <div class="chips" role="tablist" aria-label="Категории кейсов">
-        <button class="chip active" data-filter="all" role="tab" aria-selected="true" data-i18n="catAll">Все</button>
-        <button class="chip" data-filter="brand" role="tab" aria-selected="false"></button>
-        <button class="chip" data-filter="gtm" role="tab" aria-selected="false"></button>
-        <button class="chip" data-filter="performance" role="tab" aria-selected="false"></button>
-        <button class="chip" data-filter="digital" role="tab" aria-selected="false"></button>
-        <button class="chip" data-filter="events" role="tab" aria-selected="false"></button>
-        <button class="chip" data-filter="retention" role="tab" aria-selected="false"></button>
-        <button class="chip" data-filter="team" role="tab" aria-selected="false"></button>
-      </div>
-
-      <div class="search">
-        <input id="searchInput" type="search" placeholder="Поиск по названиям, меткам…" data-i18n-placeholder="searchPlaceholder" />
-      </div>
-
-      <div id="cardsGrid" class="grid"></div>
+<!-- ================= FILTERS + CASES ============================ -->
+<section class="section" id="cases">
+  <div class="wrap">
+    <h2 data-i18n="casesTitle">Кейсы</h2>
+    <div class="chips" role="tablist" aria-label="Категории кейсов">
+      <button class="chip active" data-filter="all" role="tab" aria-selected="true" data-i18n="catAll">Все</button>
+      <button class="chip" data-filter="brand" role="tab"></button>
+      <button class="chip" data-filter="gtm" role="tab"></button>
+      <button class="chip" data-filter="performance" role="tab"></button>
+      <button class="chip" data-filter="digital" role="tab"></button>
+      <button class="chip" data-filter="events" role="tab"></button>
+      <button class="chip" data-filter="retention" role="tab"></button>
+      <button class="chip" data-filter="team" role="tab"></button>
     </div>
-  </section>
-
-  <footer id="contacts" class="contacts">
-    <div class="contacts-inner">
-      <h2 data-i18n="contactsTitle">Контакты</h2>
-      <ul class="contact-list">
-        <li><a href="mailto:hello@alenaragozi.pro">hello@alenaragozi.pro</a></li>
-        <li><a href="https://t.me/alenaragozi" target="_blank" rel="noopener">Telegram</a></li>
-        <li><a href="https://www.linkedin.com/in/alenaragozina" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-      <p class="small">© <span id="year"></span> Alena Ragozina</p>
+    <div class="search">
+      <input id="searchInput" type="search" placeholder="Поиск по названиям, меткам…" data-i18n-placeholder="searchPlaceholder" />
     </div>
-  </footer>
+    <div id="cardsGrid" class="grid"></div>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<!-- ================= CONTACTS ================================== -->
+<footer id="contacts" class="contacts">
+  <div class="wrap">
+    <h2 data-i18n="contactsTitle">Контакты</h2>
+    <ul class="contact-list">
+      <li><a href="mailto:hello@alenaragozi.pro">hello@alenaragozi.pro</a></li>
+      <li><a href="https://t.me/alenaragozi" target="_blank" rel="noopener">Telegram</a></li>
+      <li><a href="https://www.linkedin.com/in/alenaragozina" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <p class="small">© <span id="year"></span> Alena Ragozina</p>
+  </div>
+</footer>
+
+<script>
+/* ===== i18n: подписи RU/EN ====================================== */
+const i18n = {
+  ru: {
+    name:"Алёна Рагозина",
+    subtitle:"Стратег по маркетингу | Запуски продуктов | Рост и бренд",
+    lede:"Лидер маркетинга с опытом в IT, финтехе, FMCG и спорте. Строю стратегии, GTM, повышаю CR/LTV, снижаю CAC. Руководила командами до 10 человек.",
+    viewCases:"Смотреть кейсы", contactMe:"Связаться",
+    casesTitle:"Кейсы", contactsTitle:"Контакты", catAll:"Все",
+    categories:{
+      brand:"Бренд-маркетинг и позиционирование",
+      gtm:"Go-to-Market стратегии и запуск продуктов",
+      performance:"Performance-маркетинг и рост продаж",
+      digital:"Цифровые каналы и аналитика",
+      events:"Мероприятия, PR и спонсорства",
+      retention:"Удержание и лояльность",
+      team:"Управление командой и процессами"
+    },
+    searchPlaceholder:"Поиск по названиям, меткам…",
+    keys:{ project:"Проект", input:"Исходные данные", work:"Что сделано", result:"Результат" },
+    viewCase:"Ссылка"
+  },
+  en: {
+    name:"Alena Ragozina",
+    subtitle:"Strategic Marketing Leader | Product Launches | Growth & Brand",
+    lede:"Marketing leader with experience in IT, fintech, FMCG and sports. I build strategy & GTM, grow CR/LTV, reduce CAC. Led teams up to 10 people.",
+    viewCases:"View cases", contactMe:"Contact",
+    casesTitle:"Cases", contactsTitle:"Contacts", catAll:"All",
+    categories:{
+      brand:"Brand Marketing & Positioning",
+      gtm:"Go-to-Market & Product Launch",
+      performance:"Performance & Revenue Growth",
+      digital:"Digital Channels & Analytics",
+      events:"Events, PR & Sponsorships",
+      retention:"Retention & Loyalty",
+      team:"Team & Process Management"
+    },
+    searchPlaceholder:"Search by title, tags…",
+    keys:{ project:"Project", input:"Initial context", work:"What we did", result:"Outcome" },
+    viewCase:"Link"
+  }
+};
+
+/* ====== CASES: редактируй свои карточки =========================
+   Поля:
+   - title.ru / title.en — заголовок
+   - cover — ссылка на картинку (можно локально: assets/имя.jpg)
+   - url — ссылка на документ/страницу кейса
+   - category — одна из: brand | gtm | performance | digital | events | retention | team
+   - tags — массив меток
+   - kv — 4 блока: project/input/work/result (RU/EN)
+================================================================= */
+const CASES = [
+  {
+    id:"case-gtm-1",
+    title:{ru:"Запуск финтех-продукта для SMB", en:"Fintech Product Launch for SMB"},
+    cover:"assets/case-fintech.jpg",
+    url:"#",
+    category:"gtm",
+    tags:["fintech","SMB","GTM"],
+    kv:{
+      project:{ru:"Банк • Онлайн-сервис", en:"Bank • Online Service"},
+      input:{ru:"0 пользователей, жёсткие сроки, ограниченный бюджет", en:"Zero users, tight deadlines, limited budget"},
+      work:{ru:"Сегменты, JTBD, офферы, контент-стратегия, преленды, партнёрства", en:"Segments, JTBD, offers, content, pre-landers, partnerships"},
+      result:{ru:"MRR +32%/кв, CAC −18%, CR к заявке +22%, PR-охват 4.1M", en:"MRR +32%/q, CAC −18%, Lead CR +22%, PR reach 4.1M"}
+    }
+  },
+  {
+    id:"case-brand-1",
+    title:{ru:"Репозиционирование премиум-бренда", en:"Premium Brand Repositioning"},
+    cover:"assets/case-brand.jpg",
+    url:"#",
+    category:"brand",
+    tags:["brand","luxury","positioning"],
+    kv:{
+      project:{ru:"Luxury FMCG", en:"Luxury FMCG"},
+      input:{ru:"Снижение узнаваемости 25–34", en:"Awareness decline in 25–34"},
+      work:{ru:"Новая платформа бренда, инфлюенсеры, digital-активации, спонсорство", en:"Brand platform, influencers, digital activations, sponsorship"},
+      result:{ru:"Awareness +9 п.п., SOV +18%, NPS 46→71", en:"Awareness +9 pp, SOV +18%, NPS 46→71"}
+    }
+  }
+];
+
+/* ====== UI логика =============================================== */
+let lang = localStorage.getItem("lang") || "ru";
+const $ = (s, c=document)=>c.querySelector(s);
+const $$ = (s, c=document)=>Array.from(c.querySelectorAll(s));
+
+function applyLang(){
+  const t=i18n[lang];
+  $$("[data-i18n]").forEach(el=>{
+    const k=el.getAttribute("data-i18n"); if (t[k]) el.textContent=t[k];
+  });
+  const si=$("#searchInput"); if (si) si.placeholder=t.searchPlaceholder;
+  $$(".chips .chip").forEach(ch=>{
+    const code=ch.dataset.filter; if(t.categories[code]) ch.textContent=t.categories[code];
+  });
+  renderCards();
+  localStorage.setItem("lang", lang);
+}
+$("#lang-ru").addEventListener("click",()=>{lang="ru";setLangActive();applyLang();});
+$("#lang-en").addEventListener("click",()=>{lang="en";setLangActive();applyLang();});
+function setLangActive(){ $$(".lang-btn").forEach(b=>b.classList.remove("active")); $(`#lang-${lang}`).classList.add("active"); }
+
+let activeFilter="all";
+$("#searchInput")?.addEventListener("input", renderCards);
+$$(".chips .chip").forEach(chip=>{
+  chip.addEventListener("click",()=>{
+    $$(".chips .chip").forEach(c=>c.classList.remove("active"));
+    chip.classList.add("active");
+    activeFilter = chip.dataset.filter;
+    renderCards();
+  });
+});
+
+function renderCards(){
+  const grid=$("#cardsGrid"); if(!grid) return;
+  grid.innerHTML="";
+  const t=i18n[lang];
+  const needle=($("#searchInput")?.value||"").trim().toLowerCase();
+  const filtered = CASES.filter(c=>{
+    const catOk = activeFilter==="all" || c.category===activeFilter;
+    const hay=(c.title[lang]+" "+c.tags.join(" ")+" "+c.kv.project[lang]+" "+c.kv.input[lang]+" "+c.kv.work[lang]+" "+c.kv.result[lang]).toLowerCase();
+    const sOk=!needle || hay.includes(needle);
+    return catOk && sOk;
+  });
+
+  filtered.forEach(c=>{
+    const el=document.createElement("article");
+    el.className="card";
+    el.innerHTML=`
+      <div class="card-media">
+        <img src="${c.cover}" alt="" onerror="this.parentNode.style.background='linear-gradient(135deg,#0e141f,#1a1322)';this.remove()">
+        <div class="taglist">${c.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+      </div>
+      <div class="card-body">
+        <h3>${c.title[lang]}</h3>
+        <div class="meta">${t.categories[c.category]}</div>
+        <div class="kv"><div class="k">${t.keys.project}</div><div class="v">${c.kv.project[lang]}</div></div>
+        <div class="kv"><div class="k">${t.keys.input}</div><div class="v">${c.kv.input[lang]}</div></div>
+        <div class="kv"><div class="k">${t.keys.work}</div><div class="v">${c.kv.work[lang]}</div></div>
+        <div class="kv"><div class="k">${t.keys.result}</div><div class="v">${c.kv.result[lang]}</div></div>
+      </div>
+      <div class="actions">
+        <a class="link" href="${c.url}" target="_blank" rel="noopener">${t.viewCase}</a>
+        <span class="badge">✓</span>
+      </div>`;
+    grid.appendChild(el);
+  });
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+setLangActive(); applyLang();
+</script>
 </body>
 </html>
