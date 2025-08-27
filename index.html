@@ -7,25 +7,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#ffffff; --ink:#0e1116; --muted:#5c6370; --soft:#f6f7f9;
-  --accent:#ff6f61; /* коралловый, как в рефе */
-  --accent-dark:#e85a4f; --border:#e8ebf0; --radius:18px; --shadow:0 10px 30px rgba(20,25,40,.08);
+  --bg:#ffffff; --ink:#121417; --muted:#68707e; --soft:#f7f8fb;
+  --accent:#ff6f61; --accent-dark:#e85a4f; --border:#e9edf3;
+  --radius:18px; --shadow:0 12px 30px rgba(18,20,23,.08);
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
 a{color:var(--accent);text-decoration:none} a:hover{filter:brightness(1.1)}
-/* NAV */
-.topbar{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:16px 20px}
+/* Topbar */
+.topbar{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:20px}
+.brand{font-weight:800;letter-spacing:.4px}
 .nav{margin-left:auto;display:flex;gap:18px}
 .nav a{color:var(--muted);font-weight:600} .nav a:hover{color:var(--ink)}
-.lang{display:flex;gap:8px}
+.lang{display:flex;gap:8px;margin-left:10px}
 .lang button{border:1px solid var(--border);background:#fff;color:var(--ink);padding:6px 10px;border-radius:999px;cursor:pointer;font-weight:600}
 .lang .active{background:var(--accent);border-color:var(--accent);color:#fff}
-/* HERO */
-.hero{background:linear-gradient(180deg,#fafbfc, #fff);border-top:1px solid var(--border)}
-.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;padding:42px 20px}
-.hero-media{border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
-.hero-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9)}
+/* Hero */
+.hero{border-top:1px solid var(--border);background:linear-gradient(180deg,#fbfcfe 0%,#fff 100%)}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:32px;padding:46px 20px}
 .kicker{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:6px 12px;border-radius:10px;margin-bottom:14px;letter-spacing:.3px}
 h1{margin:0 0 10px;font-size:44px;line-height:1.1}
 .subtitle{margin:0 0 12px;color:var(--muted);font-weight:600}
@@ -33,22 +32,28 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-block;padding:12px 16px;border-radius:12px;background:var(--accent);color:#fff;font-weight:700}
 .btn.ghost{background:#fff;border:1px solid var(--border);color:var(--ink)}
-/* SECTION */
-.section{max-width:1200px;margin:0 auto;padding:36px 20px}
+.hero-media{border-radius:26px;overflow:hidden;box-shadow:var(--shadow);min-height:360px}
+.hero-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
+/* Feature pills */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.feature{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:16px}
+.feature h3{margin:0 0 6px;font-size:16px}
+/* Sections */
+.section{max-width:1200px;margin:0 auto;padding:38px 20px}
 .section h2{margin:0 0 12px;font-size:28px}
-/* FILTERS */
-.filters{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 14px}
+/* Filters */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 14px}
 .chip{border:1px solid var(--border);background:#fff;color:var(--ink);padding:8px 12px;border-radius:999px;cursor:pointer}
 .chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
-.search{margin:10px 0 20px}
+.search{margin:12px 0 18px}
 .search input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#fff}
-/* CARDS */
+/* Cards */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
 .card-media{position:relative;aspect-ratio:16/9;background:#eef2f6}
 .card-media img{width:100%;height:100%;object-fit:cover;display:block}
 .taglist{position:absolute;left:10px;bottom:10px;display:flex;gap:6px;flex-wrap:wrap}
-.tag{background:rgba(255,255,255,.85);border:1px solid var(--border);color:#333;border-radius:999px;padding:4px 8px;font-size:12px}
+.tag{background:rgba(255,255,255,.9);border:1px solid var(--border);color:#2b2f36;border-radius:999px;padding:4px 8px;font-size:12px}
 .card-body{padding:16px}
 .card h3{margin:0 0 6px;font-size:18px}
 .meta{color:var(--muted);font-size:13px;margin-bottom:8px}
@@ -58,33 +63,21 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1}
 .link{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid var(--border)}
 .link:hover{border-color:var(--accent)}
 .badge{margin-left:auto;background:var(--soft);color:var(--accent-dark);border-radius:999px;padding:6px 10px;font-weight:700;border:1px solid var(--border)}
-/* FEATURES (необязательно) */
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
-.feature{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:18px}
-.feature h3{margin:0 0 6px;font-size:16px}
-/* CONTACTS */
-.footer{margin-top:24px;background:var(--soft);border-top:1px solid var(--border)}
+/* Footer */
+.footer{margin-top:26px;background:var(--soft);border-top:1px solid var(--border)}
 .footer .inner{max-width:1200px;margin:0 auto;padding:28px 20px;text-align:center}
 .contact-list{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;padding:0;margin:8px 0 10px;list-style:none}
 .small{color:var(--muted);font-size:13px}
 /* RWD */
-@media (max-width:992px){
-  .hero-inner{grid-template-columns:1fr}
-  .grid{grid-template-columns:1fr 1fr}
-  .features{grid-template-columns:1fr 1fr}
-}
-@media (max-width:560px){
-  h1{font-size:34px}
-  .grid{grid-template-columns:1fr}
-  .features{grid-template-columns:1fr}
-}
+@media (max-width:992px){ .hero-inner{grid-template-columns:1fr} .grid{grid-template-columns:1fr 1fr} .features{grid-template-columns:1fr 1fr} }
+@media (max-width:560px){ h1{font-size:34px} .grid{grid-template-columns:1fr} .features{grid-template-columns:1fr} }
 </style>
 </head>
 
 <body>
-<!-- ===== Topbar ===== -->
+<!-- Topbar -->
 <div class="topbar">
-  <div class="brand" style="font-weight:800;">AR</div>
+  <div class="brand">AR</div>
   <nav class="nav">
     <a href="#work" data-i18n="navWork">Работы</a>
     <a href="#about" data-i18n="navAbout">Обо мне</a>
@@ -96,27 +89,22 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1}
   </div>
 </div>
 
-<!-- ===== Hero ===== -->
+<!-- Hero -->
 <header class="hero" id="about">
   <div class="hero-inner">
-    <!-- Большое фото справа как в рефе — можно заменить ссылку на свою -->
-    <div class="hero-media">
-      <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop" alt="">
-    </div>
     <div>
       <span class="kicker" data-i18n="kicker">Freelancer / CMO</span>
       <h1 data-i18n="name">Алёна Рагозина</h1>
       <p class="subtitle" data-i18n="subtitle">Стратег по маркетингу · Запуски продуктов · Рост и бренд</p>
       <p class="lede" data-i18n="lede">
         Лидер маркетинга с опытом в IT, финтехе, FMCG и спорте. Строю стратегии, GTM, повышаю CR/LTV, снижаю CAC.
-        Руководила командами до 10 человек. Работаю с брендами и продуктами на международных рынках.
+        Руководила командами до 10 человек. Работаю на международных рынках.
       </p>
       <div class="cta">
         <a class="btn" href="#work" data-i18n="viewCases">Смотреть кейсы</a>
         <a class="btn ghost" href="#contacts" data-i18n="contactMe">Связаться</a>
       </div>
 
-      <!-- Три «фича»-плитки (можно скрыть/переименовать) -->
       <div class="features">
         <div class="feature">
           <h3 data-i18n="f1t">Go-to-Market</h3>
@@ -128,18 +116,22 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1}
         </div>
         <div class="feature">
           <h3 data-i18n="f3t">Leadership</h3>
-          <p data-i18n="f3d">Построение команд, процессы и KPI, единая маркетинг-система.</p>
+          <p data-i18n="f3d">Команды, процессы, KPI и единая маркетинговая система.</p>
         </div>
       </div>
+    </div>
+
+    <!-- Большое фото справа (как в рефе). Поставь свою ссылку/картинку -->
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop" alt="">
     </div>
   </div>
 </header>
 
-<!-- ===== Work ===== -->
+<!-- Cases -->
 <section class="section" id="work">
   <h2 data-i18n="casesTitle">Кейсы</h2>
 
-  <!-- Категории как табы -->
   <div class="filters" role="tablist">
     <button class="chip active" data-filter="all" data-i18n="catAll">Все</button>
     <button class="chip" data-filter="brand"></button>
@@ -158,7 +150,7 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1}
   <div id="cardsGrid" class="grid"></div>
 </section>
 
-<!-- ===== Contacts ===== -->
+<!-- Contacts -->
 <footer id="contacts" class="footer">
   <div class="inner">
     <h2 data-i18n="contactsTitle">Контакты</h2>
@@ -172,16 +164,16 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1}
 </footer>
 
 <script>
-/* ========= i18n ========= */
+/* i18n */
 const i18n = {
   ru:{navWork:"Работы",navAbout:"Обо мне",navContact:"Контакты",
       kicker:"Freelancer / CMO",name:"Алёна Рагозина",
       subtitle:"Стратег по маркетингу · Запуски продуктов · Рост и бренд",
-      lede:"Лидер маркетинга с опытом в IT, финтехе, FMCG и спорте. Строю стратегии, GTM, повышаю CR/LTV, снижаю CAC. Руководила командами до 10 человек. Работаю с брендами и продуктами на международных рынках.",
+      lede:"Лидер маркетинга с опытом в IT, финтехе, FMCG и спорте. Строю стратегии, GTM, повышаю CR/LTV, снижаю CAC. Руководила командами до 10 человек. Работаю на международных рынках.",
       viewCases:"Смотреть кейсы",contactMe:"Связаться",
       f1t:"Go-to-Market",f1d:"Запуски и репозиционирование, JTBD, офферы, контент и PR.",
       f2t:"Growth",f2d:"Воронки, CRO, CAC↓, LTV↑, партнёрки и performance-микс.",
-      f3t:"Leadership",f3d:"Построение команд, процессы и KPI, единая маркетинг-система.",
+      f3t:"Leadership",f3d:"Команды, процессы, KPI и единая маркетинговая система.",
       casesTitle:"Кейсы",contactsTitle:"Контакты",catAll:"Все",
       categories:{brand:"Бренд-маркетинг и позиционирование",gtm:"Go-to-Market и запуск",performance:"Performance и рост продаж",digital:"Цифровые каналы и аналитика",events:"Мероприятия, PR и спонсорства",retention:"Удержание и лояльность",team:"Команда и процессы"},
       searchPlaceholder:"Поиск по названиям, меткам…",
@@ -189,10 +181,10 @@ const i18n = {
   en:{navWork:"Work",navAbout:"About",navContact:"Contact",
       kicker:"Freelancer / CMO",name:"Alena Ragozina",
       subtitle:"Strategic Marketing · Product Launches · Growth & Brand",
-      lede:"Marketing leader with experience across IT, fintech, FMCG and sports. I build strategy & GTM, grow CR/LTV, reduce CAC. Led teams up to 10 people, work across international markets.",
+      lede:"Marketing leader across IT, fintech, FMCG and sports. I build strategy & GTM, grow CR/LTV, reduce CAC. Led teams up to 10 people.",
       viewCases:"View cases",contactMe:"Contact",
-      f1t:"Go-to-Market",f1d:"Launch & repositioning, JTBD, offers, content and PR.",
-      f2t:"Growth",f2d:"Funnels, CRO, CAC↓, LTV↑, partnerships and performance mix.",
+      f1t:"Go-to-Market",f1d:"Launch & repositioning, JTBD, offers, content & PR.",
+      f2t:"Growth",f2d:"Funnels, CRO, CAC↓, LTV↑, partnerships & performance mix.",
       f3t:"Leadership",f3d:"Teams, processes & KPIs, unified marketing system.",
       casesTitle:"Cases",contactsTitle:"Contacts",catAll:"All",
       categories:{brand:"Brand Marketing & Positioning",gtm:"Go-to-Market & Launch",performance:"Performance & Revenue Growth",digital:"Digital Channels & Analytics",events:"Events, PR & Sponsorships",retention:"Retention & Loyalty",team:"Team & Process Management"},
@@ -200,7 +192,7 @@ const i18n = {
       keys:{project:"Project",input:"Initial context",work:"What we did",result:"Outcome"},viewCase:"Link"}
 };
 
-/* ========= ДАННЫЕ: ЗАМЕНИ НА СВОИ ========= */
+/* ДАННЫЕ — ЗАМЕНИ НА СВОИ */
 const CASES = [
   {
     id:"c1",
@@ -246,7 +238,7 @@ const CASES = [
   }
 ];
 
-/* ========= ЛОГИКА UI ========= */
+/* ЛОГИКА */
 let lang = localStorage.getItem("lang") || "ru";
 const $ = (s, c=document)=>c.querySelector(s);
 const $$ = (s, c=document)=>Array.from(c.querySelectorAll(s));
@@ -254,9 +246,7 @@ const $$ = (s, c=document)=>Array.from(c.querySelectorAll(s));
 function applyLang(){
   const t=i18n[lang];
   $$("[data-i18n]").forEach(el=>{ const k=el.getAttribute("data-i18n"); if(t[k]) el.textContent=t[k]; });
-  // placeholder
-  const si=$("#searchInput"); if (si) si.placeholder = t.searchPlaceholder;
-  // подписи категорий
+  $("#searchInput").placeholder = t.searchPlaceholder;
   $$(".filters .chip").forEach(ch=>{ const code=ch.dataset.filter; if(code&&t.categories[code]) ch.textContent=t.categories[code]; });
   renderCards();
   localStorage.setItem("lang",lang);
@@ -265,9 +255,8 @@ function setLangActive(){ $$(".lang button").forEach(b=>b.classList.remove("acti
 $("#lang-ru").addEventListener("click",()=>{lang="ru";setLangActive();applyLang();});
 $("#lang-en").addEventListener("click",()=>{lang="en";setLangActive();applyLang();});
 
-/* Фильтры + поиск */
 let activeFilter="all";
-$("#searchInput")?.addEventListener("input", renderCards);
+$("#searchInput").addEventListener("input", renderCards);
 $$(".filters .chip").forEach(ch=>{
   ch.addEventListener("click", ()=>{
     $$(".filters .chip").forEach(c=>c.classList.remove("active"));
@@ -277,11 +266,10 @@ $$(".filters .chip").forEach(ch=>{
   });
 });
 
-/* Рендер карточек */
 function renderCards(){
   const grid=$("#cardsGrid"); grid.innerHTML="";
   const t=i18n[lang];
-  const needle = ($("#searchInput")?.value||"").trim().toLowerCase();
+  const needle = $("#searchInput").value.trim().toLowerCase();
 
   const filtered = CASES.filter(c=>{
     const catOK = activeFilter==="all" || c.category===activeFilter;
@@ -314,7 +302,6 @@ function renderCards(){
   });
 }
 
-/* мелочи */
 document.getElementById("year").textContent = new Date().getFullYear();
 setLangActive(); applyLang();
 </script>
