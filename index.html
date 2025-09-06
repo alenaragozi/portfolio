@@ -8,7 +8,7 @@
 <!-- запрет индексации -->
 <meta name="robots" content="noindex, nofollow" />
 
-<!-- Proxima Nova Condensed (положи файл в assets/fonts/ProximaNovaCond.woff2) -->
+<!-- Proxima Nova Condensed -->
 <link rel="preload" href="/assets/fonts/ProximaNovaCond.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
@@ -45,7 +45,12 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a}
 .subtitle{margin:0 0 12px;color:var(--muted);font-weight:600}
 .lede{margin:0 0 18px;max-width:65ch}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:12px 16px;border-radius:12px;background:var(--accent);color:#fff;font-weight:700} /* белый текст */
+/* Кнопки: одинаковая высота везде */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:44px; padding:12px 16px;
+  border-radius:12px; background:var(--accent); color:#fff; font-weight:700
+}
 .btn.ghost{background:#fff;border:1px solid var(--border);color:var(--ink)}
 .hero-media{border-radius:26px;overflow:hidden;box-shadow:var(--shadow);min-height:360px}
 .hero-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95)}
@@ -62,7 +67,7 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a}
 .chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
 /* Search */
 .search{margin:12px 0 18px}
-.search input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#fff;color:var(--ink)}
+.search input{width:100%;padding:6px 14px;border-radius:12px;border:1px solid var(--border);background:#fff;color:var(--ink)}
 /* Cards */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
@@ -93,9 +98,9 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a}
 <body>
 <!-- Topbar -->
 <div class="topbar">
-  <div class="brand"><a href="/">AR</a></div> <!-- клик ведёт на корень -->
+  <div class="brand"><a href="/">AR</a></div>
   <nav class="nav">
-    <a href="#work" data-i18n="navWork">Кейсы</a>  <!-- «Кейсы» -->
+    <a href="#work" data-i18n="navWork">Кейсы</a>
     <a href="#about" data-i18n="navAbout">Обо мне</a>
     <a href="#contacts" data-i18n="navContact">Контакты</a>
   </nav>
@@ -109,25 +114,24 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a}
 <header class="hero" id="about">
   <div class="hero-inner">
     <div>
-      <span class="kicker" data-i18n="kicker">Freelancer / CMO</span>
-      <h1 data-i18n="name">АЛЁНА РАГОЗИНА</h1>  <!-- КАПС -->
-      <p class="subtitle" data-i18n="subtitle">Стратег по маркетингу · Запуски продуктов · Рост и бренд</p>
+      <span class="kicker" data-i18n="kicker">Head of Marketing / CMO</span>
+      <h1 data-i18n="name">АЛЁНА РАГОЗИНА</h1>
+      <p class="subtitle" data-i18n="subtitle">Маркетинговые стратегии · Запуски продуктов · Рост и бренд</p>
       <p class="lede" data-i18n="lede">
-        Лидер маркетинга с опытом в IT, финтехе, FMCG и спорте. Строю стратегии, GTM, повышаю CR/LTV, снижаю CAC.
-        Руководила командами до 10 человек. Работаю на международных рынках.
+        Лидирую маркетинг в IT, финтехе, FMCG, wellness и спорте. Строю стратегии, GTM, повышаю CR/LTV, снижаю CAC.
+        Руковожу успешными командами от 10 человек. Работаю на международных рынках.
       </p>
       <div class="cta">
         <a class="btn" href="#work" data-i18n="viewCases">Смотреть кейсы</a>
         <a class="btn ghost" href="#contacts" data-i18n="contactMe">Связаться</a>
       </div>
       <div class="features">
-        <div class="feature"><h3 data-i18n="f1t">Go-to-Market</h3><p data-i18n="f1d">Запуски и репозиционирование, JTBD, офферы, контент и PR.</p></div>
-        <div class="feature"><h3 data-i18n="f2t">Growth</h3><p data-i18n="f2d">Воронки, CRO, CAC↓, LTV↑, партнёрки и performance-микс.</p></div>
+        <div class="feature"><h3 data-i18n="f1t">Go-to-Market</h3><p data-i18n="f1d">Запуск и позиционирование, контент и PR. Здесь побольне написать </p></div>
+        <div class="feature"><h3 data-i18n="f2t">Growth</h3><p data-i18n="f2d">Воронки, ROI, CAC↓, LTV↑, партнёрки и performance-микс.</p></div>
         <div class="feature"><h3 data-i18n="f3t">Leadership</h3><p data-i18n="f3d">Команды, процессы, KPI и единая маркетинговая система.</p></div>
       </div>
     </div>
     <div class="hero-media">
-      <!-- твоя фотография -->
       <img src="/assets/cover.jpg" alt="Alena Ragozina">
     </div>
   </div>
@@ -157,9 +161,9 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a}
   <div class="inner">
     <h2 data-i18n="contactsTitle">Контакты</h2>
     <ul class="contact-list">
-      <li><a href="mailto:hello@alenaragozi.pro">hello@alenaragozi.pro</a></li>
-      <li><a href="https://t.me/alenaragozi" target="_blank" rel="noopener">Telegram</a></li>
-      <li><a href="https://www.linkedin.com/in/alenaragozina" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="mailto:helen.ragozi@gmail.com">helen.ragozi@gmail.com</a></li>
+      <li><a href="https://t.me/alena_ragozi" target="_blank" rel="noopener">Telegram</a></li>
+      <li><a href="https://www.linkedin.com/in/alena-ragozi" target="_blank" rel="noopener">LinkedIn</a></li>
     </ul>
     <p class="small">© <span id="year"></span> ALENA RAGOZINA</p>
   </div>
@@ -169,21 +173,21 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a}
 /* ===== i18n ===== */
 const i18n = {
   ru:{navWork:"Кейсы",navAbout:"Обо мне",navContact:"Контакты",
-      kicker:"Freelancer / CMO",name:"АЛЁНА РАГОЗИНА",
-      subtitle:"Стратег по маркетингу · Запуски продуктов · Рост и бренд",
-      lede:"Лидер маркетинга с опытом в IT, финтехе, FMCG и спорте. Строю стратегии, GTM, повышаю CR/LTV, снижаю CAC. Руководила командами до 10 человек. Работаю на международных рынках.",
+      kicker:"Head of Marketing / CMO",name:"АЛЁНА РАГОЗИНА",
+      subtitle:"Маркетинговые стратегии · Запуски продуктов · Рост и бренд",
+      lede:"Лидер маркетинга с опытом в IT, финтехе, FMCG, wellness и спорте. Строю стратегии, GTM, повышаю CR/LTV, снижаю CAC. Руковожу успешными командами от 10 человек. Работаю на международных рынках.",
       viewCases:"Смотреть кейсы",contactMe:"Связаться",
-      f1t:"Go-to-Market",f1d:"Запуски и репозиционирование, JTBD, офферы, контент и PR.",
-      f2t:"Growth",f2d:"Воронки, CRO, CAC↓, LTV↑, партнёрки и performance-микс.",
+      f1t:"Go-to-Market",f1d:"Запуск и позиционирование, контент и PR.",
+      f2t:"Growth",f2d:"Воронки, ROI, CAC↓, LTV↑, партнёрки и performance-микс.",
       f3t:"Leadership",f3d:"Команды, процессы, KPI и единая маркетинговая система.",
       casesTitle:"Кейсы",contactsTitle:"Контакты",catAll:"Все",
       categories:{brand:"Бренд-маркетинг и позиционирование",gtm:"Go-to-Market и запуск",performance:"Performance и рост продаж",digital:"Цифровые каналы и аналитика",events:"Мероприятия, PR и спонсорства",retention:"Удержание и лояльность",team:"Команда и процессы"},
       searchPlaceholder:"Поиск по названиям, меткам…",
-      keys:{project:"Проект",input:"Исходные данные",work:"Что сделано",result:"Результат"},viewCase:"Ссылка"},
-  en:{navWork:"Work",navAbout:"About",navContact:"Contact",
-      kicker:"Freelancer / CMO",name:"ALENA RAGOZINA",
+      keys:{project:"Проект",input:"Контекст",work:"Решение",result:"Результат"},viewCase:"Ссылка"},
+  en:{navWork:"Cases",navAbout:"About",navContact:"Contact",
+      kicker:"Head of Marketing / CMO",name:"ALENA RAGOZINA",
       subtitle:"Strategic Marketing · Product Launches · Growth & Brand",
-      lede:"Marketing leader across IT, fintech, FMCG and sports. I build strategy & GTM, grow CR/LTV, reduce CAC. Led teams up to 10 people.",
+      lede:"Marketing leader with experience in IT, fintech, FMCG, wellness, and sports. I build strategies and GTM plans, improve CR/LTV, and reduce CAC. I lead high-performing teams of up to 10 people and operate across international markets.",
       viewCases:"View cases",contactMe:"Contact",
       f1t:"Go-to-Market",f1d:"Launch & repositioning, JTBD, offers, content & PR.",
       f2t:"Growth",f2d:"Funnels, CRO, CAC↓, LTV↑, partnerships & performance mix.",
@@ -191,27 +195,71 @@ const i18n = {
       casesTitle:"Cases",contactsTitle:"Contacts",catAll:"All",
       categories:{brand:"Brand Marketing & Positioning",gtm:"Go-to-Market & Launch",performance:"Performance & Revenue Growth",digital:"Digital Channels & Analytics",events:"Events, PR & Sponsorships",retention:"Retention & Loyalty",team:"Team & Process Management"},
       searchPlaceholder:"Search by title, tags…",
-      keys:{project:"Project",input:"Initial context",work:"What we did",result:"Outcome"},viewCase:"Link"}
+      keys:{project:"Project",input:"Context",work:"Solution",result:"Outcome"},viewCase:"Link"}
 };
 
-/* ===== demo cases (замени на свои) ===== */
+/* ===== 4 кейса ===== */
 const CASES = [
-  { id:"c1",
-    title:{ru:"Запуск финтех-продукта для SMB", en:"Fintech Product Launch for SMB"},
-    cover:"/assets/case-fintech.jpg",
-    url:"#", category:"gtm", tags:["fintech","SMB","GTM"],
-    kv:{ project:{ru:"Банк • Онлайн-сервис",en:"Bank • Online service"},
-         input:{ru:"0 пользователей, короткие сроки",en:"Zero users, tight deadlines"},
-         work:{ru:"JTBD, офферы, контент/PR, лид-лендинг",en:"JTBD, offers, content/PR, lead landing"},
-         result:{ru:"MRR +32%/кв; CAC −18%; CR +22%",en:"MRR +32%/q; CAC −18%; CR +22%"} } },
-  { id:"c2",
-    title:{ru:"Репозиционирование премиум-бренда", en:"Premium Brand Repositioning"},
-    cover:"/assets/case-brand.jpg",
-    url:"#", category:"brand", tags:["brand","positioning","luxury"],
-    kv:{ project:{ru:"Luxury FMCG",en:"Luxury FMCG"},
-         input:{ru:"Падение awareness 25–34",en:"Awareness decline 25–34"},
-         work:{ru:"Платформа, инфлюенсеры, активации",en:"Platform, influencers, activations"},
-         result:{ru:"Awareness +9 п.п.; SOV +18%",en:"Awareness +9 pp; SOV +18%"} } }
+  /* 1. Darth Vader / MasterCard (Events/PR) */
+  {
+    id:"case-zv",
+    title:{ru:"Darth Vader в Московской консерватории", en:"Darth Vader at the Moscow Conservatory"},
+    cover:"/assets/zv.jpg",
+    url:"https://www.youtube.com/watch?v=EP-x5dHOpS0",
+    category:"events",
+    tags:["event","PR","StarWars","MasterCard"],
+    kv:{
+      project:{ru:"MasterCard", en:"MasterCard"},
+      input:{ru:"Запрос на проведение глобальной маркетинговой акции", en:"Request for a global marketing activation"},
+      work:{ru:"360° кампания: организация события в Консерватории, продакшн, работа со СМИ", en:"360° campaign: venue production at the Conservatory, media relations, full production"},
+      result:{ru:"Продажи карт MasterCard +45% в точках продаж-партнёров; охват — ТОП СМИ", en:"Card sales +45% at partner POS; coverage across top-tier media"}
+    }
+  },
+  /* 2. Qwixit — запуск маркетплейса (GTM) */
+  {
+    id:"case-qw",
+    title:{ru:"Запуск маркетплейса товаров из США", en:"Launching a US Goods Marketplace"},
+    cover:"/assets/qw.jpg",
+    url:"https://qwixit.com/",
+    category:"gtm",
+    tags:["GTM","marketplace","launch"],
+    kv:{
+      project:{ru:"Qwixit.com", en:"Qwixit.com"},
+      input:{ru:"Сложность сервиса мейлфорвардинга, длинный цикл решения, низкие импульсные покупки", en:"Mail-forwarding complexity, long decision cycle, low impulse buys"},
+      work:{ru:"Идея и стратегия GTM, сегментация, acquisition-каналы, email-воронки, referral-программа. 12 недель лидировала запуск", en:"GTM strategy, segmentation, acquisition mix, email funnels, referral program. Led the launch for 12 weeks"},
+      result:{ru:"ROI ~100% за 6 месяцев; проект обогнал аналоги по заказам за 3 месяца; +15% привлечение новой аудитории в другие продукты", en:"~100% ROI in 6 months; outperformed peers in orders within 3 months; +15% cross-acquisition to other products"}
+    }
+  },
+  /* 3. Pochtoy — рост SEO (Digital/Analytics) */
+  {
+    id:"case-pcht",
+    title:{ru:"Рост органического трафика и SEO-рейтинга", en:"Organic Traffic & SEO Growth"},
+    cover:"/assets/pcht.jpg",
+    url:"https://youtube.com/",
+    category:"digital",
+    tags:["SEO","content","growth"],
+    kv:{
+      project:{ru:"Pochtoy.com", en:"Pochtoy.com"},
+      input:{ru:"Стагнация SEO-показателей", en:"Stagnant SEO metrics"},
+      work:{ru:"Контент-оптимизация, линкбилдинг, локализация, ускорение индексации, блог-стратегия", en:"Content optimization, link-building, localization, faster indexing, blog strategy"},
+      result:{ru:"+280% органического трафика; 38 ключей в ТОП-3 Google и 42 в Яндекс; рост брендовых запросов +20%", en:"+280% organic traffic; 38 keywords in Google TOP-3 and 42 in Yandex; +20% branded search"}
+    }
+  },
+  /* 4. Prostobox — снижение CAC (Performance) */
+  {
+    id:"case-pb",
+    title:{ru:"Снижение стоимости привлечения клиента", en:"Lowering Customer Acquisition Cost"},
+    cover:"/assets/pb.jpg",
+    url:"https://prostobox.com/",
+    category:"performance",
+    tags:["CRO","ads","CAC"],
+    kv:{
+      project:{ru:"Pochtoy.com и Prostobox", en:"Pochtoy.com & Prostobox"},
+      input:{ru:"Высокий CAC, недостаточная сегментация трафика", en:"High CAC, insufficient traffic segmentation"},
+      work:{ru:"Новые РК на micro-CGM, A/B-тесты лендингов/контента, анализ воронки, ниширование таргета и контента у блогеров", en:"New campaigns to micro-CGM, A/B tests of landings/content, funnel analysis, sharper targeting & creator content"},
+      result:{ru:"CAC −15%; CR к заказу +21%; CPL −30%; масштабирование за счёт более целевой ниши", en:"CAC −15%; Order CR +21%; CPL −30%; scaled via better niche targeting"}
+    }
+  }
 ];
 
 /* ===== language via /ru /en ===== */
@@ -219,12 +267,12 @@ function currentLangFromPath(){
   const p = location.pathname.replace(/\/+$/,'');
   if (p.endsWith('/en')) return 'en';
   if (p.endsWith('/ru') || p==='') return 'ru';
-  return 'ru';
+  return 'en';
 }
 function ensureDefaultSlug(){
-  // если открыли корень без слэша языка — ведём на /ru
+  /* редирект с корня на EN */
   if (location.pathname==='/' || location.pathname==='') {
-    location.replace('/ru');
+    location.replace('/en');
   }
 }
 ensureDefaultSlug();
