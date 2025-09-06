@@ -38,21 +38,28 @@ a:hover{filter:brightness(1.06)}
 .nav{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
 .nav a{color:var(--muted);font-weight:600}
 .nav a:hover{color:#2f2f2f}
+
+/* язык — идеальная центровка */
 .lang{display:flex;gap:8px}
-.lang a{border:1px solid var(--border);background:#fff;color:var(--ink);padding:6px 12px;border-radius:var(--pill);font-weight:700}
+.lang a{
+  display:flex;align-items:center;justify-content:center;
+  height:var(--btn-h);min-width:var(--btn-h);padding:0 12px;
+  border:1px solid var(--border);border-radius:var(--pill);
+  background:#fff;color:var(--ink);font-weight:700
+}
 .lang a.active{background:var(--accent);border-color:var(--accent);color:#fff}
 
 /* ===== HERO ===== */
 .hero{border-top:1px solid var(--border);background:linear-gradient(180deg,#fbfcfe 0%,#fff 100%)}
 .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:32px;padding:46px 20px}
 
-/* единые пилюли */
+/* единые «пилюли» */
 .kicker,.btn,.btn.ghost,.chip{
   display:inline-flex;align-items:center;justify-content:center;
   height:var(--btn-h);padding:0 18px;border-radius:var(--pill);line-height:1;
 }
-
 .kicker{background:var(--accent);color:#fff;font-weight:700;margin-bottom:14px}
+
 h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
 .subtitle{margin:0 0 12px;color:var(--muted);font-weight:600}
 .lede{margin:0 0 18px;max-width:65ch}
@@ -75,7 +82,7 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
 .section{max-width:1200px;margin:0 auto;padding:38px 20px}
 .section h2{margin:0 0 12px;font-size:28px;color:#2f2f2f}
 
-/* ===== FILTERS (без скролла, переносятся на 2+ строки) ===== */
+/* ===== FILTERS ===== */
 .filters{display:flex;flex-wrap:wrap;gap:12px 12px;margin:8px 0 14px}
 .chip{border:1px solid var(--border);background:#fff;color:var(--ink);font-weight:700;white-space:nowrap}
 .chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -86,11 +93,14 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
 
 /* ===== GRID / CARDS ===== */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.card{
+  background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);
+  overflow:hidden;display:flex;flex-direction:column
+}
 .card-media{position:relative;aspect-ratio:2/1;background:#eef2f6}
 .card-media img{width:100%;height:100%;object-fit:cover;display:block}
 
-/* Теги — маленькие, белый текст, «молочный» фон */
+/* Теги — маленькие, белые, молочный фон */
 .taglist{position:absolute;left:10px;bottom:10px;display:flex;gap:6px;flex-wrap:wrap}
 .tag{
   display:inline-flex;align-items:center;justify-content:center;
@@ -99,18 +109,28 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
   background:rgba(255,255,255,.55);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.25)
 }
 
-.card-body{padding:16px}
-.card h3{margin:0 0 6px;font-size:18px;color:#2f2f2f}
-.meta{color:var(--muted);font-size:13px;margin-bottom:8px}
+.card-body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{margin:0;font-size:18px;color:#2f2f2f}
+.meta{color:var(--muted);font-size:13px}
 
-/* Компактнее расстояние между лейблами и значениями */
-.kv{display:grid;grid-template-columns:140px 1fr;column-gap:10px;row-gap:2px;font-size:14px;margin:6px 0}
-.kv .k{color:var(--muted)}
+/* Компактные пары ключ-значение */
+.kv{
+  display:grid;grid-template-columns:140px 1fr;
+  column-gap:10px;row-gap:2px; /* ← плотнее */
+  font-size:14px;margin:2px 0   /* ← плотнее */
+}
+.kv .k{color:var(--muted);align-self:start}
+.kv .v{line-height:1.4}        /* ← плотнее текста */
 
-/* Стрелка вместо кнопки */
-.actions{display:flex;justify-content:flex-end;padding:0 16px 14px}
-.actions a.link{font-size:18px;color:var(--accent);display:inline-flex;align-items:center;border:none;background:none;padding:0;transition:transform .2s ease}
-.actions a.link::after{content:"→";margin-left:6px;font-size:18px}
+/* Стрелка — всегда внизу */
+.actions{
+  display:flex;justify-content:flex-end;align-items:flex-end;
+  padding:0 16px 14px; margin-top:auto
+}
+.actions a.link{
+  font-size:20px;color:var(--accent);display:inline-flex;align-items:center;border:none;background:none;padding:0;transition:transform .2s ease
+}
+.actions a.link::after{content:"→";margin-left:6px;font-size:20px}
 .actions a.link:hover{transform:translateX(4px)}
 
 /* ===== FOOTER ===== */
@@ -184,7 +204,7 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
 <section class="section" id="work">
   <h2 data-i18n="casesTitle">Cases</h2>
 
-  <!-- тексты есть сразу, и пере-переводятся i18n -->
+  <!-- чипы с текстом сразу + переводы i18n -->
   <div id="filters" class="filters" role="tablist">
     <button class="chip active" data-filter="all" data-i18n="catAll">All</button>
     <button class="chip" data-filter="brand" data-i18n="catBrand">Brand Marketing & Positioning</button>
@@ -218,17 +238,13 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
 
 <script>
 /* ——— Router/lang ——— */
-const PATH = location.pathname.replace(/\/+$/,'');          // убираем хвостовые слэши
-if (PATH==='') location.replace('/en');                      // корень -> /en
-const state = { lang: (PATH.endsWith('/ru') ? 'ru' : 'en'), filter:"all", query:"" };
+const PATH = location.pathname.replace(/\/+$/,'');
+if (PATH==='') location.replace('/en');
+const state = { lang:(PATH.endsWith('/ru')?'ru':'en'), filter:"all", query:"" };
 document.documentElement.lang = state.lang;
 
 /* подсветка активного языка */
-(function(){
-  const en = document.getElementById('lnk-en');
-  const ru = document.getElementById('lnk-ru');
-  if (state.lang==='en') en.classList.add('active'); else ru.classList.add('active');
-})();
+(function(){ const en=document.getElementById('lnk-en'), ru=document.getElementById('lnk-ru'); (state.lang==='en'?en:ru).classList.add('active'); })();
 
 /* ——— i18n ——— */
 const i18n = {
@@ -241,14 +257,9 @@ const i18n = {
       f2t:"Growth",f2d:"Воронки, ROI, CAC↓, LTV↑, партнёрки и performance-микс.",
       f3t:"Leadership",f3d:"Команды, процессы, KPI и единая маркетинговая система.",
       casesTitle:"Кейсы",contactsTitle:"Контакты",
-      catAll:"Все",
-      catBrand:"Бренд-маркетинг и позиционирование",
-      catGtm:"Go-to-Market и запуск",
-      catPerformance:"Performance-маркетинг и рост продаж",
-      catDigital:"Цифровые каналы и аналитика",
-      catEvents:"Мероприятия, PR и спонсорства",
-      catRetention:"Удержание и лояльность",
-      catTeam:"Управление командой и процессами",
+      catAll:"Все", catBrand:"Бренд-маркетинг и позиционирование", catGtm:"Go-to-Market и запуск",
+      catPerformance:"Performance-маркетинг и рост продаж", catDigital:"Цифровые каналы и аналитика",
+      catEvents:"Мероприятия, PR и спонсорства", catRetention:"Удержание и лояльность", catTeam:"Управление командой и процессами",
       searchPlaceholder:"Поиск по названиям, меткам…",
       keys:{project:"Проект",input:"Контекст",work:"Решение",result:"Результат"},
       viewCase:"Ссылка"},
@@ -261,20 +272,15 @@ const i18n = {
       f2t:"Growth",f2d:"Funnels, ROI, CAC↓, LTV↑, partnerships & performance mix.",
       f3t:"Leadership",f3d:"Teams, processes, KPIs & a unified marketing system.",
       casesTitle:"Cases",contactsTitle:"Contacts",
-      catAll:"All",
-      catBrand:"Brand Marketing & Positioning",
-      catGtm:"Go-to-Market & Launch",
-      catPerformance:"Performance & Revenue Growth",
-      catDigital:"Digital Channels & Analytics",
-      catEvents:"Events, PR & Sponsorships",
-      catRetention:"Retention & Loyalty",
-      catTeam:"Team & Process Management",
+      catAll:"All", catBrand:"Brand Marketing & Positioning", catGtm:"Go-to-Market & Launch",
+      catPerformance:"Performance & Revenue Growth", catDigital:"Digital Channels & Analytics",
+      catEvents:"Events, PR & Sponsorships", catRetention:"Retention & Loyalty", catTeam:"Team & Process Management",
       searchPlaceholder:"Search by title, tags…",
       keys:{project:"Project",input:"Context",work:"Solution",result:"Outcome"},
       viewCase:"Link"}
 };
 
-/* ——— Data ——— (4 кейса, тексты как давала) */
+/* ——— Data (4 кейса) ——— */
 const CASES = [
   { id:"zv",
     title:{ru:"Darth Vader в Московской консерватории", en:"Darth Vader at the Moscow Conservatory"},
@@ -363,15 +369,16 @@ const CASES = [
   }
 ];
 
-/* ——— UI helpers ——— */
+/* ——— Helpers ——— */
 const $ = (s,c=document)=>c.querySelector(s);
 const $$ = (s,c=document)=>Array.from(c.querySelectorAll(s));
+function cap(s){return (s||'').charAt(0).toUpperCase()+s.slice(1)}
 
-/* рендер карточек */
+/* ——— Render ——— */
 function renderCards(){
   const t=i18n[state.lang];
   const grid=$("#cardsGrid"); grid.innerHTML="";
-  const q = (state.query||"").toLowerCase();
+  const q=(state.query||"").toLowerCase();
 
   const filtered = CASES.filter(c=>{
     const okCat = state.filter==="all" || c.category===state.filter;
@@ -390,7 +397,7 @@ function renderCards(){
   filtered.forEach(c=>{
     const el=document.createElement("article");
     el.className="card";
-    el.innerHTML = `
+    el.innerHTML=`
       <div class="card-media">
         <img src="${c.cover}" alt="">
         <div class="taglist">${(c.tags||[]).map(x=>`<span class="tag">${x}</span>`).join("")}</div>
@@ -398,6 +405,7 @@ function renderCards(){
       <div class="card-body">
         <h3>${c.title[state.lang]}</h3>
         <div class="meta">${t['cat'+cap(c.category)]||""}</div>
+
         <div class="kv"><div class="k">${t.keys.project}</div><div class="v">${c.kv.project[state.lang]}</div></div>
         <div class="kv"><div class="k">${t.keys.input}</div><div class="v">${c.kv.input[state.lang]}</div></div>
         <div class="kv"><div class="k">${t.keys.work}</div><div class="v">${c.kv.work[state.lang]}</div></div>
@@ -409,11 +417,10 @@ function renderCards(){
     grid.appendChild(el);
   });
 }
-function cap(s){return (s||'').charAt(0).toUpperCase()+s.slice(1)}
 
 /* фильтры */
 $("#filters").addEventListener("click",(e)=>{
-  const btn = e.target.closest(".chip"); if(!btn) return;
+  const btn=e.target.closest(".chip"); if(!btn) return;
   $$(".chip").forEach(c=>c.classList.remove("active"));
   btn.classList.add("active");
   state.filter = btn.dataset.filter;
