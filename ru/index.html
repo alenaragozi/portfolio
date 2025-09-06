@@ -6,103 +6,138 @@
 <title>ALENA RAGOZINA — Portfolio</title>
 
 <!-- запрет индексации -->
-<meta name="robots" content="noindex, nofollow" />
+<meta name="robots" content="noindex,nofollow" />
 
-<!-- Calibri -->
+<!-- Calibri webfonts -->
 <link rel="preload" href="/assets/fonts/Calibri.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/Calibri-Bold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/Calibri-Italic.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
+/* ===== FONTS ===== */
 @font-face{font-family:"Calibri";src:url("/assets/fonts/Calibri.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:"Calibri";src:url("/assets/fonts/Calibri-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
 @font-face{font-family:"Calibri";src:url("/assets/fonts/Calibri-Italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
 
+/* ===== THEME ===== */
 :root{
   --bg:#ffffff; --ink:#595959; --muted:#7a7a7a; --soft:#f7f8fb;
   --accent:#5AC3C2; --accent-dark:#3aa9a7; --border:#e9edf3;
-  --radius:18px; --shadow:0 12px 30px rgba(18,20,23,.08);
+  --shadow:0 8px 22px rgba(18,20,23,.08);
+  --pill:999px; --btn-h:40px;
 }
+
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:Calibri, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  line-height:1.6}
-a{color:var(--accent);text-decoration:none} a:hover{filter:brightness(1.06)}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Calibri",Arial,sans-serif;line-height:1.6}
+a{color:var(--accent);text-decoration:none}
+a:hover{filter:brightness(1.06)}
 
-/* Topbar */
-.topbar{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:20px}
-.brand a{font-weight:700;letter-spacing:.4px;color:#3a3a3a}
+/* ===== TOPBAR ===== */
+.topbar{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px}
+.brand a{font-weight:700;color:#2f2f2f}
 .nav{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
-.nav a{color:var(--muted);font-weight:600;display:flex;align-items:center} 
-.nav a:hover{color:#3a3a3a}
-.lang{display:flex;gap:8px;margin-left:10px}
-.lang button{border:1px solid var(--border);background:#fff;color:var(--ink);padding:6px 12px;
-  border-radius:999px;cursor:pointer;font-weight:600;display:flex;align-items:center;justify-content:center}
-.lang .active{background:var(--accent);border-color:var(--accent);color:#fff}
+.nav a{color:var(--muted);font-weight:600}
+.nav a:hover{color:#2f2f2f}
+.lang{display:flex;gap:8px}
+.lang a{border:1px solid var(--border);background:#fff;color:var(--ink);padding:6px 12px;border-radius:var(--pill);font-weight:700}
+.lang a.active{background:var(--accent);border-color:var(--accent);color:#fff}
 
-/* Hero */
+/* ===== HERO ===== */
 .hero{border-top:1px solid var(--border);background:linear-gradient(180deg,#fbfcfe 0%,#fff 100%)}
 .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:32px;padding:46px 20px}
-.kicker{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;font-weight:700;
-  padding:8px 16px;border-radius:999px;margin-bottom:14px;letter-spacing:.3px;min-height:42px}
-h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a}
+
+/* единые пилюли */
+.kicker,.btn,.btn.ghost,.chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  height:var(--btn-h);padding:0 18px;border-radius:var(--pill);line-height:1;
+}
+
+.kicker{background:var(--accent);color:#fff;font-weight:700;margin-bottom:14px}
+h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
 .subtitle{margin:0 0 12px;color:var(--muted);font-weight:600}
 .lede{margin:0 0 18px;max-width:65ch}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:0 20px;min-height:42px;
-  border-radius:999px;background:var(--accent);color:#fff;font-weight:600}
-.btn.ghost{background:#fff;border:1px solid var(--border);color:var(--ink)}
-.hero-media{border-radius:26px;overflow:hidden;box-shadow:var(--shadow);min-height:360px}
-.hero-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95)}
 
-/* Feature cards */
+.btn{background:var(--accent);color:#fff;font-weight:700}
+.btn.ghost{background:#fff;border:1px solid var(--border);color:#0c3c3b}
+.btn:hover{box-shadow:0 6px 16px rgba(90,195,194,.24);transform:translateY(-1px)}
+.btn.ghost:hover{border-color:var(--accent);box-shadow:0 6px 16px rgba(90,195,194,.18);transform:translateY(-1px)}
+
+.hero-media{border-radius:26px;overflow:hidden;box-shadow:var(--shadow);min-height:360px}
+.hero-media img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ===== FEATURES ===== */
 .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
 .feature{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:16px}
-.feature h3{margin:0 0 6px;font-size:16px;color:#3a3a3a}
+.feature h3{margin:0 0 6px;font-size:16px;color:#2f2f2f}
 
-/* Sections */
+/* ===== SECTIONS ===== */
 .section{max-width:1200px;margin:0 auto;padding:38px 20px}
-.section h2{margin:0 0 12px;font-size:28px;color:#3a3a3a}
+.section h2{margin:0 0 12px;font-size:28px;color:#2f2f2f}
 
-/* Filters */
-.filters{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 14px}
-.chip{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);background:#fff;
-  color:var(--ink);padding:6px 16px;border-radius:999px;cursor:pointer;font-weight:600;min-height:36px}
+/* ===== FILTERS (без скролла, переносятся на 2+ строки) ===== */
+.filters{display:flex;flex-wrap:wrap;gap:12px 12px;margin:8px 0 14px}
+.chip{border:1px solid var(--border);background:#fff;color:var(--ink);font-weight:700;white-space:nowrap}
 .chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
 
-/* Search */
+/* ===== SEARCH ===== */
 .search{margin:12px 0 18px}
-.search input{width:100%;padding:8px 14px;border-radius:999px;border:1px solid var(--border);background:#fff;color:var(--ink)}
+.search input{width:100%;padding:10px 14px;border-radius:var(--pill);border:1px solid var(--border);background:#fff;color:#595959}
 
-/* Cards */
+/* ===== GRID / CARDS ===== */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);
-  overflow:hidden;display:flex;flex-direction:column}
-.card-media{position:relative;aspect-ratio:500/250;background:#eef2f6}
+.card{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.card-media{position:relative;aspect-ratio:2/1;background:#eef2f6}
 .card-media img{width:100%;height:100%;object-fit:cover;display:block}
-.taglist{position:absolute;left:10px;bottom:10px;display:flex;gap:6px;flex-wrap:wrap}
-.tag{background:rgba(0,0,0,.35);color:#fff;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:400;line-height:1.3}
-.card-body{padding:16px}
-.card h3{margin:0 0 6px;font-size:18px;color:#3a3a3a}
-.meta{color:var(--muted);font-size:13px;margin-bottom:8px}
-.kv{display:grid;grid-template-columns:120px 1fr;gap:6px;font-size:14px;margin:4px 0}
-.kv .k{color:var(--muted);align-self:center}
-.actions{display:flex;gap:8px;margin-top:auto;padding:0 16px 14px}
-.actions a{margin-left:auto;font-size:20px;color:var(--accent)}
 
-/* Footer */
+/* Теги — маленькие, белый текст, «молочный» фон */
+.taglist{position:absolute;left:10px;bottom:10px;display:flex;gap:6px;flex-wrap:wrap}
+.tag{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:20px;padding:0 10px;border-radius:var(--pill);
+  font-size:11px;line-height:1;font-weight:400;
+  background:rgba(255,255,255,.55);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.25)
+}
+
+.card-body{padding:16px}
+.card h3{margin:0 0 6px;font-size:18px;color:#2f2f2f}
+.meta{color:var(--muted);font-size:13px;margin-bottom:8px}
+
+/* Компактнее расстояние между лейблами и значениями */
+.kv{display:grid;grid-template-columns:140px 1fr;column-gap:10px;row-gap:8px;font-size:14px;margin:6px 0}
+.kv .k{color:var(--muted)}
+
+/* Стрелка вместо кнопки */
+.actions{display:flex;justify-content:flex-end;padding:0 16px 14px}
+.actions a.link{font-size:18px;color:var(--accent);display:inline-flex;align-items:center;border:none;background:none;padding:0;transition:transform .2s ease}
+.actions a.link::after{content:"→";margin-left:6px;font-size:18px}
+.actions a.link:hover{transform:translateX(4px)}
+
+/* ===== FOOTER ===== */
 .footer{margin-top:26px;background:var(--soft);border-top:1px solid var(--border)}
 .footer .inner{max-width:1200px;margin:0 auto;padding:28px 20px;text-align:center}
 .contact-list{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;padding:0;margin:8px 0 10px;list-style:none}
 .small{color:var(--muted);font-size:13px}
 
-/* RWD */
-@media (max-width:992px){ .hero-inner{grid-template-columns:1fr} .grid{grid-template-columns:1fr 1fr} .features{grid-template-columns:1fr 1fr} }
-@media (max-width:560px){ h1{font-size:34px} .grid{grid-template-columns:1fr} .features{grid-template-columns:1fr} }
+/* ===== RESPONSIVE ===== */
+@media (max-width:992px){
+  .hero-inner{grid-template-columns:1fr;gap:24px}
+  .hero-media{min-height:240px}
+  .features{grid-template-columns:1fr 1fr}
+  .grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  h1{font-size:32px}
+  .features{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .cta{justify-content:center}
+  .kv{grid-template-columns:110px 1fr}
+}
 </style>
 </head>
+
 <body>
-<!-- Topbar -->
+<!-- TOPBAR -->
 <div class="topbar">
   <div class="brand"><a href="/">AR</a></div>
   <nav class="nav">
@@ -111,55 +146,64 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a}
     <a href="#contacts" data-i18n="navContact">Contacts</a>
   </nav>
   <div class="lang">
-    <button id="lang-ru">RU</button>
-    <button id="lang-en">EN</button>
+    <a id="lnk-ru" href="/ru">RU</a>
+    <a id="lnk-en" href="/en">EN</a>
   </div>
 </div>
 
-<!-- Hero -->
+<!-- HERO -->
 <header class="hero" id="about">
   <div class="hero-inner">
     <div>
       <span class="kicker" data-i18n="kicker">Head of Marketing / CMO</span>
       <h1 data-i18n="name">ALENA RAGOZINA</h1>
       <p class="subtitle" data-i18n="subtitle">Strategic Marketing · Product Launches · Growth & Brand</p>
-      <p class="lede" data-i18n="lede"></p>
+      <p class="lede" data-i18n="lede">
+        Marketing leader with experience in IT, fintech, FMCG, wellness, and sports. I build strategies and GTM plans,
+        improve CR/LTV, and reduce CAC. I lead high-performing teams of up to 10 people and operate across international markets.
+      </p>
       <div class="cta">
         <a class="btn" href="#work" data-i18n="viewCases">View cases</a>
         <a class="btn ghost" href="#contacts" data-i18n="contactMe">Contact</a>
       </div>
+
       <div class="features">
-        <div class="feature"><h3 data-i18n="f1t">Go-to-Market</h3><p data-i18n="f1d"></p></div>
-        <div class="feature"><h3 data-i18n="f2t">Growth</h3><p data-i18n="f2d"></p></div>
-        <div class="feature"><h3 data-i18n="f3t">Leadership</h3><p data-i18n="f3d"></p></div>
+        <div class="feature"><h3 data-i18n="f1t">Go-to-Market</h3><p data-i18n="f1d">Launch & positioning, content and PR.</p></div>
+        <div class="feature"><h3 data-i18n="f2t">Growth</h3><p data-i18n="f2d">Funnels, ROI, CAC↓, LTV↑, partnerships & performance mix.</p></div>
+        <div class="feature"><h3 data-i18n="f3t">Leadership</h3><p data-i18n="f3d">Teams, processes, KPIs & a unified marketing system.</p></div>
       </div>
     </div>
+
     <div class="hero-media">
       <img src="/assets/cover.jpg" alt="Alena Ragozina">
     </div>
   </div>
 </header>
 
-<!-- Cases -->
+<!-- CASES -->
 <section class="section" id="work">
   <h2 data-i18n="casesTitle">Cases</h2>
-  <div class="filters" role="tablist">
+
+  <!-- тексты есть сразу, и пере-переводятся i18n -->
+  <div id="filters" class="filters" role="tablist">
     <button class="chip active" data-filter="all" data-i18n="catAll">All</button>
-    <button class="chip" data-filter="brand"></button>
-    <button class="chip" data-filter="gtm"></button>
-    <button class="chip" data-filter="performance"></button>
-    <button class="chip" data-filter="digital"></button>
-    <button class="chip" data-filter="events"></button>
-    <button class="chip" data-filter="retention"></button>
-    <button class="chip" data-filter="team"></button>
+    <button class="chip" data-filter="brand" data-i18n="catBrand">Brand Marketing & Positioning</button>
+    <button class="chip" data-filter="gtm" data-i18n="catGtm">Go-to-Market & Launch</button>
+    <button class="chip" data-filter="performance" data-i18n="catPerformance">Performance & Revenue Growth</button>
+    <button class="chip" data-filter="digital" data-i18n="catDigital">Digital Channels & Analytics</button>
+    <button class="chip" data-filter="events" data-i18n="catEvents">Events, PR & Sponsorships</button>
+    <button class="chip" data-filter="retention" data-i18n="catRetention">Retention & Loyalty</button>
+    <button class="chip" data-filter="team" data-i18n="catTeam">Team & Process Management</button>
   </div>
+
   <div class="search">
-    <input id="searchInput" type="search" placeholder="Search..." data-i18n-placeholder="searchPlaceholder" />
+    <input id="searchInput" type="search" placeholder="Search by title, tags…" data-i18n-placeholder="searchPlaceholder" />
   </div>
+
   <div id="cardsGrid" class="grid"></div>
 </section>
 
-<!-- Contacts -->
+<!-- FOOTER -->
 <footer id="contacts" class="footer">
   <div class="inner">
     <h2 data-i18n="contactsTitle">Contacts</h2>
@@ -173,69 +217,223 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a}
 </footer>
 
 <script>
-const PATH = location.pathname.replace(/\/+$/,'');
-if (PATH==='') location.replace('/en');
-
-const state = { lang:(PATH.endsWith('/ru')?'ru':'en'), filter:"all", query:"" };
+/* ——— Router/lang ——— */
+const PATH = location.pathname.replace(/\/+$/,'');          // убираем хвостовые слэши
+if (PATH==='') location.replace('/en');                      // корень -> /en
+const state = { lang: (PATH.endsWith('/ru') ? 'ru' : 'en'), filter:"all", query:"" };
 document.documentElement.lang = state.lang;
 
+/* подсветка активного языка */
+(function(){
+  const en = document.getElementById('lnk-en');
+  const ru = document.getElementById('lnk-ru');
+  if (state.lang==='en') en.classList.add('active'); else ru.classList.add('active');
+})();
+
+/* ——— i18n ——— */
 const i18n = {
   ru:{navWork:"Кейсы",navAbout:"Обо мне",navContact:"Контакты",
       kicker:"Head of Marketing / CMO",name:"АЛЁНА РАГОЗИНА",
       subtitle:"Маркетинговые стратегии · Запуски продуктов · Рост и бренд",
-      lede:"Лидер маркетинга с опытом в IT, финтехе, FMCG, wellness и спорте...",
+      lede:"Лидер маркетинга с опытом в IT, финтехе, FMCG, wellness и спорте. Строю стратегии и GTM, повышаю CR/LTV, снижаю CAC. Руковожу командами до 10 человек. Работаю на международных рынках.",
       viewCases:"Смотреть кейсы",contactMe:"Связаться",
       f1t:"Go-to-Market",f1d:"Запуск и позиционирование, контент и PR.",
       f2t:"Growth",f2d:"Воронки, ROI, CAC↓, LTV↑, партнёрки и performance-микс.",
       f3t:"Leadership",f3d:"Команды, процессы, KPI и единая маркетинговая система.",
-      casesTitle:"Кейсы",contactsTitle:"Контакты",catAll:"Все",
-      categories:{brand:"Бренд-маркетинг и позиционирование",gtm:"Go-to-Market и запуск",performance:"Performance и рост продаж",digital:"Цифровые каналы и аналитика",events:"Мероприятия, PR и спонсорства",retention:"Удержание и лояльность",team:"Команда и процессы"},
+      casesTitle:"Кейсы",contactsTitle:"Контакты",
+      catAll:"Все",
+      catBrand:"Бренд-маркетинг и позиционирование",
+      catGtm:"Go-to-Market и запуск",
+      catPerformance:"Performance-маркетинг и рост продаж",
+      catDigital:"Цифровые каналы и аналитика",
+      catEvents:"Мероприятия, PR и спонсорства",
+      catRetention:"Удержание и лояльность",
+      catTeam:"Управление командой и процессами",
       searchPlaceholder:"Поиск по названиям, меткам…",
-      keys:{project:"Проект",input:"Контекст",work:"Решение",result:"Результат"},viewCase:"Ссылка"},
+      keys:{project:"Проект",input:"Контекст",work:"Решение",result:"Результат"},
+      viewCase:"Ссылка"},
   en:{navWork:"Cases",navAbout:"About",navContact:"Contacts",
       kicker:"Head of Marketing / CMO",name:"ALENA RAGOZINA",
       subtitle:"Strategic Marketing · Product Launches · Growth & Brand",
-      lede:"Marketing leader with experience in IT, fintech, FMCG, wellness, and sports...",
+      lede:"Marketing leader with experience in IT, fintech, FMCG, wellness, and sports. I build strategies and GTM plans, improve CR/LTV, and reduce CAC. I lead high-performing teams of up to 10 people and operate across international markets.",
       viewCases:"View cases",contactMe:"Contact",
-      f1t:"Go-to-Market",f1d:"Launch & positioning, content & PR.",
+      f1t:"Go-to-Market",f1d:"Launch & positioning, content and PR.",
       f2t:"Growth",f2d:"Funnels, ROI, CAC↓, LTV↑, partnerships & performance mix.",
-      f3t:"Leadership",f3d:"Teams, processes & KPIs, unified marketing system.",
-      casesTitle:"Cases",contactsTitle:"Contacts",catAll:"All",
-      categories:{brand:"Brand Marketing & Positioning",gtm:"Go-to-Market & Launch",performance:"Performance & Revenue Growth",digital:"Digital Channels & Analytics",events:"Events, PR & Sponsorships",retention:"Retention & Loyalty",team:"Team & Process Management"},
+      f3t:"Leadership",f3d:"Teams, processes, KPIs & a unified marketing system.",
+      casesTitle:"Cases",contactsTitle:"Contacts",
+      catAll:"All",
+      catBrand:"Brand Marketing & Positioning",
+      catGtm:"Go-to-Market & Launch",
+      catPerformance:"Performance & Revenue Growth",
+      catDigital:"Digital Channels & Analytics",
+      catEvents:"Events, PR & Sponsorships",
+      catRetention:"Retention & Loyalty",
+      catTeam:"Team & Process Management",
       searchPlaceholder:"Search by title, tags…",
-      keys:{project:"Project",input:"Context",work:"Solution",result:"Outcome"},viewCase:"Link"}
+      keys:{project:"Project",input:"Context",work:"Solution",result:"Outcome"},
+      viewCase:"Link"}
 };
 
+/* ——— Data ——— (4 кейса, тексты как давала) */
 const CASES = [
-  { id:"c1",
-    title:{ru:"Darth Vader в Московской консерватории", en:"Darth Vader at Moscow Conservatory"},
-    cover:"/assets/zv.jpg", url:"#", category:"events", tags:["event","PR","StarWars","MasterCard"],
-    kv:{ project:{ru:"MasterCard",en:"MasterCard"},
-         input:{ru:"Запрос MasterCard на проведение глобальной акции",en:"MasterCard request for global campaign"},
-         work:{ru:"360° кампания, шоу, продакшн, СМИ",en:"360° campaign, show, production, media"},
-         result:{ru:"Продажи +45% в партнёрских точках, упоминания в ТОП-СМИ",en:"Sales +45% at partner venues, coverage in top media"} } },
-  { id:"c2",
+  { id:"zv",
+    title:{ru:"Darth Vader в Московской консерватории", en:"Darth Vader at the Moscow Conservatory"},
+    cover:"/assets/zv.jpg",
+    url:"https://www.youtube.com/watch?v=EP-x5dHOpS0",
+    category:"events",
+    tags:["event","PR","StarWars","MasterCard"],
+    kv:{
+      project:{ru:"MasterCard",en:"MasterCard"},
+      input:{
+        ru:"Запрос MasterCard на проведение глобальной маркетинговой акции",
+        en:"MasterCard’s request for a global marketing activation"
+      },
+      work:{
+        ru:"Проведение 360° кампании, организация мероприятия в консерватории, продакшен и работа со СМИ.",
+        en:"360° campaign: event at the Conservatory, full production and PR."
+      },
+      result:{
+        ru:"Увеличение продаж картами MasterCard на 45% в точках продаж-партнёров (кинотеатров и др). Упоминание во всех ТОП-СМИ. И это просто один из самых прекрасных кейсов!",
+        en:"+45% purchases with MasterCard at partner POS (cinemas, etc.). Coverage across top media."
+      }
+    }
+  },
+  { id:"qw",
     title:{ru:"Запуск нового маркетплейса товаров из США", en:"Launching a Marketplace for Goods from the USA"},
-    cover:"/assets/qw.jpg", url:"#", category:"gtm", tags:["marketplace","GTM","USA"],
-    kv:{ project:{ru:"Qwixit.com",en:"Qwixit.com"},
-         input:{ru:"Сложности мейлфорвардинга, длинный цикл решения",en:"Mail-forwarding complexity; long decision cycle"},
-         work:{ru:"Концепция, GTM, сегментация, acquisition, email, referral",en:"Marketplace concept; GTM strategy; segmentation; acquisition; email; referral"},
-         result:{ru:"ROI +100% за 6 мес, обгон конкурентов, +15% кросс-продаж",en:"ROI +100% in 6 months, outperformed rivals, +15% cross-acquisition"} } }
+    cover:"/assets/qw.jpg",
+    url:"https://qwixit.com/",
+    category:"gtm",
+    tags:["marketplace","launch","GTM"],
+    kv:{
+      project:{ru:"Qwixit.com",en:"Qwixit.com"},
+      input:{
+        ru:"Сложность использования услуг мейлфорвардера, большой срок принятия решения, отсутствие импульсивных покупок и ограничение в маркетинговых акциях на сами товары.",
+        en:"Mail-forwarding complexity; long decision cycle; few impulse buys; promo restrictions on goods."
+      },
+      work:{
+        ru:"Идея создания нового маркетплейса. Разработка GTM-стратегии, сегментация ЦА, настройка каналов acquisition, email-воронки, referral-программа. Выступала главным стейкхолдером в течение 12 недель от идеи до запуска продукта.",
+        en:"Marketplace concept; GTM strategy, segmentation, acquisition channels, email funnels, referral. Lead stakeholder for 12 weeks from idea to launch."
+      },
+      result:{
+        ru:"— ROI ≈ +100% в первые 6 месяцев\n— Проект обогнал другие продукты мейлфорвардера за 3 месяца по количеству заказов\n— +15% привлечение новой аудитории через маркетплейс на другие продукты",
+        en:"— ROI ≈ +100% in the first 6 months\n— Outperformed other mail-forwarding products by orders in 3 months\n— +15% cross-acquisition to other products"
+      }
+    }
+  },
+  { id:"pcht",
+    title:{ru:"Рост органического трафика и SEO-рейтинга", en:"Organic Traffic & SEO Ranking Growth"},
+    cover:"/assets/pcht.jpg",
+    url:"#",
+    category:"digital",
+    tags:["SEO","content","growth"],
+    kv:{
+      project:{ru:"Pochtoy.com",en:"Pochtoy.com"},
+      input:{ru:"Стагнация показателей SEO",en:"Stagnation in SEO metrics"},
+      work:{
+        ru:"Контент-оптимизация, линкбилдинг, локализация страниц, ускорение индексации. Ведение блога.",
+        en:"Content optimisation, link-building, localisation, faster indexing. Blog management."
+      },
+      result:{
+        ru:"— +280% рост органического трафика\n— 38 ключей в ТОП-3 Google и 42 в Яндекс\n— +20% рост брендовых запросов",
+        en:"+280% organic traffic; 38 TOP-3 in Google and 42 in Yandex; +20% branded search"
+      }
+    }
+  },
+  { id:"pb",
+    title:{ru:"Снижение стоимости привлечения клиента", en:"Lowering Customer Acquisition Cost"},
+    cover:"/assets/pb.jpg",
+    url:"https://prostobox.com/",
+    category:"performance",
+    tags:["CRO","ads","CAC"],
+    kv:{
+      project:{ru:"Pochtoy.com и Prostobox",en:"Pochtoy.com & Prostobox"},
+      input:{
+        ru:"Высокие затраты на acquisition, недостаточная сегментация трафика.",
+        en:"High acquisition costs, insufficient traffic segmentation."
+      },
+      work:{
+        ru:"Запуск новых РК на micro-CGM аудитории, A/B-тестирование лендингов и контента, анализ конверсий воронки. Найдена более целевая ниша для таргетинга и более продающий контент у блогеров для масштабирования кампаний.",
+        en:"New campaigns to micro-CGM audiences, A/B testing of landings and content, funnel analysis. Found better targeting niches and creator content to scale."
+      },
+      result:{
+        ru:"— CAC снизился на 15%\n— +21% рост CR от клика к заказу\n— CPL снизился на 30%",
+        en:"— CAC −15%\n— Order CR +21%\n— CPL −30%"
+      }
+    }
+  }
 ];
 
+/* ——— UI helpers ——— */
+const $ = (s,c=document)=>c.querySelector(s);
+const $$ = (s,c=document)=>Array.from(c.querySelectorAll(s));
+
+/* рендер карточек */
+function renderCards(){
+  const t=i18n[state.lang];
+  const grid=$("#cardsGrid"); grid.innerHTML="";
+  const q = (state.query||"").toLowerCase();
+
+  const filtered = CASES.filter(c=>{
+    const okCat = state.filter==="all" || c.category===state.filter;
+    const hay = [
+      c.title[state.lang],
+      ...(c.tags||[]),
+      c.kv?.project?.[state.lang]||"",
+      c.kv?.input?.[state.lang]||"",
+      c.kv?.work?.[state.lang]||"",
+      c.kv?.result?.[state.lang]||""
+    ].join(" ").toLowerCase();
+    const okSearch = !q || hay.includes(q);
+    return okCat && okSearch;
+  });
+
+  filtered.forEach(c=>{
+    const el=document.createElement("article");
+    el.className="card";
+    el.innerHTML = `
+      <div class="card-media">
+        <img src="${c.cover}" alt="">
+        <div class="taglist">${(c.tags||[]).map(x=>`<span class="tag">${x}</span>`).join("")}</div>
+      </div>
+      <div class="card-body">
+        <h3>${c.title[state.lang]}</h3>
+        <div class="meta">${t['cat'+cap(c.category)]||""}</div>
+        <div class="kv"><div class="k">${t.keys.project}</div><div class="v">${c.kv.project[state.lang]}</div></div>
+        <div class="kv"><div class="k">${t.keys.input}</div><div class="v">${c.kv.input[state.lang]}</div></div>
+        <div class="kv"><div class="k">${t.keys.work}</div><div class="v">${c.kv.work[state.lang]}</div></div>
+        <div class="kv"><div class="k">${t.keys.result}</div><div class="v" style="white-space:pre-wrap">${c.kv.result[state.lang]}</div></div>
+      </div>
+      <div class="actions">
+        <a class="link" href="${c.url}" target="_blank" rel="noopener" aria-label="${t.viewCase}"></a>
+      </div>`;
+    grid.appendChild(el);
+  });
+}
+function cap(s){return (s||'').charAt(0).toUpperCase()+s.slice(1)}
+
+/* фильтры */
+$("#filters").addEventListener("click",(e)=>{
+  const btn = e.target.closest(".chip"); if(!btn) return;
+  $$(".chip").forEach(c=>c.classList.remove("active"));
+  btn.classList.add("active");
+  state.filter = btn.dataset.filter;
+  renderCards();
+});
+
+/* поиск */
+$("#searchInput").addEventListener("input",(e)=>{ state.query=e.target.value||""; renderCards(); });
+
+/* применяем переводы */
 function applyI18n(){
   const t=i18n[state.lang];
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
-    const k=el.getAttribute("data-i18n"); if(t[k]) el.textContent=t[k];
-  });
-  const si=document.querySelector("#searchInput"); if(si) si.placeholder=t.searchPlaceholder;
-  document.querySelectorAll(".filters .chip").forEach(ch=>{
-    const code=ch.dataset.filter; if(code&&t.categories[code]) ch.textContent=t.categories[code];
-  });
+  $$("[data-i18n]").forEach(el=>{ const k=el.getAttribute("data-i18n"); if(t[k]) el.textContent=t[k]; });
+  const si=$("#searchInput"); if(si) si.placeholder=t.searchPlaceholder;
   renderCards();
 }
-function renderCards(){
-  const grid=document.querySelector("#cardsGrid"); if (!grid) return;
-  grid.innerHTML="";
-  const t=i18n[state.lang];
-  CASES.filter(c
+
+/* init */
+document.getElementById("year").textContent=new Date().getFullYear();
+applyI18n();
+</script>
+</body>
+</html>
