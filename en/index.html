@@ -8,7 +8,7 @@
 <!-- запрет индексации -->
 <meta name="robots" content="noindex, nofollow" />
 
-<!-- Calibri webfonts -->
+<!-- Calibri webfonts (файлы лежат в /assets/fonts/) -->
 <link rel="preload" href="/assets/fonts/Calibri.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/Calibri-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -35,7 +35,8 @@
   --bg:#ffffff; --ink:#595959; --muted:#7a7a7a; --soft:#f7f8fb;
   --accent:#5AC3C2; --accent-dark:#3aa9a7; --border:#e9edf3;
   --radius:20px; --shadow:0 12px 30px rgba(18,20,23,.08);
-  --btn-h:48px; --pill:999px;
+  --btn-h:40px;               /* тоньше кнопки */
+  --pill:999px;
 }
 
 /* ===== base ===== */
@@ -64,7 +65,7 @@ a{color:var(--accent);text-decoration:none} a:hover{filter:brightness(1.06)}
 .kicker{
   display:inline-flex;align-items:center;justify-content:center;
   background:var(--accent);color:#fff;font-weight:700;
-  height:var(--btn-h);padding:0 16px;border-radius:var(--pill);margin-bottom:12px;font-size:20px
+  height:var(--btn-h);padding:0 16px;border-radius:var(--pill);margin-bottom:14px;font-size:15px
 }
 h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a;font-weight:700;letter-spacing:.4px}
 .subtitle{margin:0 0 12px;color:var(--muted);font-weight:700}
@@ -74,8 +75,8 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a;font-weight:700;
 /* ===== buttons: единая высота и одинаковый hover ===== */
 .btn,.btn.ghost,.link{
   display:inline-flex;align-items:center;justify-content:center;
-  height:var(--btn-h);padding:0 22px;border-radius:var(--pill);
-  font-weight:700;font-size:17px;line-height:1;white-space:nowrap;
+  height:var(--btn-h);padding:0 18px;border-radius:var(--pill);
+  font-weight:700;font-size:15px;line-height:1;white-space:nowrap;
   transition:border-color .2s ease, background-color .2s ease,
              box-shadow .2s ease, transform .2s ease, color .2s ease;
 }
@@ -102,7 +103,10 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a;font-weight:700;
 .chip{border:1px solid var(--border);background:#fff;color:var(--ink);padding:8px 12px;border-radius:var(--pill);cursor:pointer;font-weight:700}
 .chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
 .search{margin:12px 0 18px}
-.search input{width:100%;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#fff;color:var(--ink)}
+.search input{
+  width:100%;padding:10px 16px;border-radius:var(--pill);
+  border:1px solid var(--border);background:#fff;color:var(--ink)
+}
 
 /* ===== cards ===== */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -110,13 +114,16 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a;font-weight:700;
 .card-media{position:relative;aspect-ratio:2/1;background:#eef2f6}
 .card-media img{width:100%;height:100%;object-fit:cover;display:block}
 
-/* tags — молочный фон + белый текст */
-.taglist{position:absolute;left:8px;bottom:8px;display:flex;gap:4px;flex-wrap:wrap}
+/* tags — молочный фон + белый текст, центрирование и тонкий вес */
+.taglist{position:absolute;left:8px;bottom:8px;display:flex;gap:6px;flex-wrap:wrap}
 .tag{
+  display:inline-flex; align-items:center; justify-content:center;
   background:rgba(255,255,255,.55);
   color:#fff;
   border:none;border-radius:var(--pill);
-  padding:2px 8px;font-size:8px;line-height:1.2;font-weight:300;
+  height:32px; padding:0 12px;     /* стабильная высота как ориентир для кнопок */
+  font-size:14px; line-height:1;   /* центрируем текст */
+  font-weight:400;                 /* тонкий вес на тегах */
   backdrop-filter:blur(2px);
   text-shadow:0 1px 2px rgba(0,0,0,.25);
 }
@@ -137,8 +144,16 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a;font-weight:700;
 .small{color:var(--muted);font-size:13px}
 
 /* ===== RWD ===== */
-@media (max-width:992px){ .hero-inner{grid-template-columns:1fr} .grid{grid-template-columns:1fr 1fr} }
-@media (max-width:560px){ h1{font-size:36px} .grid{grid-template-columns:1fr} }
+@media (max-width:992px){
+  .hero-inner{grid-template-columns:1fr; gap:24px;}
+  .hero-media{min-height:280px}
+  .grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  h1{font-size:36px}
+  .grid{grid-template-columns:1fr}
+  .feature{min-height:auto}
+}
 </style>
 </head>
 
@@ -162,15 +177,15 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a;font-weight:700;
   <div class="hero-inner">
     <div>
       <span class="kicker" data-i18n="kicker">Head of Marketing / CMO</span>
-      <h1 data-i18n="name">ALENA RAGOZINA</h1>
-      <p class="subtitle" data-i18n="subtitle">Strategic Marketing · Product Launches · Growth & Brand</p>
+      <h1 data-i18n="name">АЛЁНА РАГОЗИНА</h1>
+      <p class="subtitle" data-i18n="subtitle">Маркетинговые стратегии · Запуски продуктов · Рост и бренд</p>
       <p class="lede" data-i18n="lede">
-        Marketing leader with experience in IT, fintech, FMCG, wellness, and sports. I build strategies and GTM plans,
-        improve CR/LTV, and reduce CAC. I lead high-performing teams of up to 10 people and operate across international markets.
+        Лидер маркетинга с опытом в IT, финтехе, FMCG, wellness и спорте. Строю стратегии и GTM, повышаю CR/LTV, снижаю CAC.
+        Руковожу командами до 10 человек. Работаю на международных рынках.
       </p>
       <div class="cta">
-        <a class="btn" href="#work" data-i18n="viewCases">View cases</a>
-        <a class="btn ghost" href="#contacts" data-i18n="contactMe">Contact</a>
+        <a class="btn" href="#work" data-i18n="viewCases">Смотреть кейсы</a>
+        <a class="btn ghost" href="#contacts" data-i18n="contactMe">Связаться</a>
       </div>
 
       <!-- Features block -->
@@ -198,10 +213,10 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a;font-weight:700;
 
 <!-- Cases -->
 <section class="section" id="work">
-  <h2 data-i18n="casesTitle">Cases</h2>
+  <h2 data-i18n="casesTitle">Кейсы</h2>
 
   <div class="filters" role="tablist">
-    <button class="chip active" data-filter="all" data-i18n="catAll">All</button>
+    <button class="chip active" data-filter="all" data-i18n="catAll">Все</button>
     <button class="chip" data-filter="brand"></button>
     <button class="chip" data-filter="gtm"></button>
     <button class="chip" data-filter="performance"></button>
@@ -212,7 +227,7 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a;font-weight:700;
   </div>
 
   <div class="search">
-    <input id="searchInput" type="search" placeholder="Search by title, tags…" data-i18n-placeholder="searchPlaceholder" />
+    <input id="searchInput" type="search" placeholder="Поиск по названиям, меткам…" data-i18n-placeholder="searchPlaceholder" />
   </div>
 
   <div id="cardsGrid" class="grid"></div>
@@ -221,7 +236,7 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#3a3a3a;font-weight:700;
 <!-- Footer -->
 <footer id="contacts" class="footer">
   <div class="inner">
-    <h2 data-i18n="contactsTitle">Contacts</h2>
+    <h2 data-i18n="contactsTitle">Контакты</h2>
     <ul class="contact-list">
       <li><a href="mailto:helen.ragozi@gmail.com">helen.ragozi@gmail.com</a></li>
       <li><a href="https://t.me/alena_ragozi" target="_blank" rel="noopener">Telegram</a></li>
@@ -240,7 +255,7 @@ const i18n = {
   ru:{navWork:"Кейсы",navAbout:"Обо мне",navContact:"Контакты",
       kicker:"Head of Marketing / CMO",name:"АЛЁНА РАГОЗИНА",
       subtitle:"Маркетинговые стратегии · Запуски продуктов · Рост и бренд",
-      lede:"Лидер маркетинга с опытом в IT, финтехе, FMCG, wellness и спорте. Строю стратегии, GTM, повышаю CR/LTV, снижаю CAC. Руковожу успешными командами от 10 человек. Работаю на международных рынках.",
+      lede:"Лидер маркетинга с опытом в IT, финтехе, FMCG, wellness и спорте. Строю стратегии и GTM, повышаю CR/LTV, снижаю CAC. Руковожу командами до 10 человек. Работаю на международных рынках.",
       viewCases:"Смотреть кейсы",contactMe:"Связаться",
       f1t:"Go-to-Market",f1d:"Запуск и позиционирование, контент и PR.",
       f2t:"Growth",f2d:"Воронки, ROI, CAC↓, LTV↑, партнёрки и performance-микс.",
@@ -268,7 +283,7 @@ const CASES = [
   { id:"zv",
     title:{ru:"Darth Vader в Московской консерватории",en:"Darth Vader at the Moscow Conservatory"},
     cover:"/assets/zv.jpg", url:"https://www.youtube.com/watch?v=EP-x5dHOpS0",
-    category:"events", tags:["event","PR","StarWars","MasterCard"],
+    category:"events", tags:["SEO","content","growth"], /* пример тегов */
     kv:{project:{ru:"MasterCard",en:"MasterCard"},
         input:{ru:"Запрос на проведение глобальной маркетинговой акции",en:"Request for a global marketing activation"},
         work:{ru:"360° кампания: организация события в Консерватории, продакшн, работа со СМИ",en:"360° campaign: venue production, media relations, full production"},
