@@ -109,7 +109,7 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
 .card-media{position:relative;aspect-ratio:2/1;background:#eef2f6}
 .card-media img{width:100%;height:100%;object-fit:cover;display:block}
 
-/* Теги на фото скрыты, но остаются в данных для поиска */
+/* Теги на фото скрыты, но в данных остаются */
 .taglist{display:none !important}
 
 .card-body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}
@@ -118,8 +118,8 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
 
 /* Компактные пары ключ-значение — меньше горизонтальный зазор */
 .kv{
-  display:grid;grid-template-columns:120px 1fr;   /* было 140px */
-  column-gap:6px; row-gap:2px;                   /* было 10px / 2px */
+  display:grid;grid-template-columns:120px 1fr;
+  column-gap:6px; row-gap:2px;
   font-size:14px;margin:2px 0
 }
 .kv .k{color:var(--muted);align-self:start}
@@ -154,7 +154,7 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
   .features{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
   .cta{justify-content:center}
-  .kv{grid-template-columns:110px 1fr}          /* мобильная колонка ключей */
+  .kv{grid-template-columns:110px 1fr}
 }
 </style>
 </head>
@@ -240,16 +240,20 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
 </footer>
 
 <script>
-/* ——— Router/lang ——— */
-const PATH = location.pathname.replace(/\/+$/,'');
-if (PATH==='') location.replace('/en');
-const state = { lang:(PATH.endsWith('/ru')?'ru':'en'), filter:"all", query:"" };
+/* ===== ONE-TIME PATH/LANG INIT ===== */
+const path = location.pathname.replace(/\/+$/,'');   // '/en', '/ru', '/ru/', '/' -> нормализуем
+if (path==='') { location.replace('/en'); }          // корень всегда на /en
+
+const state = {
+  lang: (path.endsWith('/ru') ? 'ru' : 'en'),
+  filter: 'all',
+  query: ''
+};
 document.documentElement.lang = state.lang;
+// подсветка активного языка
+(document.getElementById(state.lang==='ru'?'lnk-ru':'lnk-en')).classList.add('active');
 
-/* подсветка активного языка */
-(function(){ const en=document.getElementById('lnk-en'), ru=document.getElementById('lnk-ru'); (state.lang==='en'?en:ru).classList.add('active'); })();
-
-/* ——— i18n ——— */
+/* ===== i18n ===== */
 const i18n = {
   ru:{navWork:"Кейсы",navAbout:"Обо мне",navContact:"Контакты",
       kicker:"Head of Marketing / CMO",name:"АЛЁНА РАГОЗИНА",
@@ -283,7 +287,7 @@ const i18n = {
       viewCase:"Link"}
 };
 
-/* ——— Data (4 кейса) ——— */
+/* ===== Data (4 cases) ===== */
 const CASES = [
   { id:"zv",
     title:{ru:"Darth Vader в Московской консерватории", en:"Darth Vader at the Moscow Conservatory"},
@@ -372,12 +376,12 @@ const CASES = [
   }
 ];
 
-/* ——— Helpers ——— */
+/* ===== Helpers ===== */
 const $ = (s,c=document)=>c.querySelector(s);
 const $$ = (s,c=document)=>Array.from(c.querySelectorAll(s));
 function cap(s){return (s||'').charAt(0).toUpperCase()+s.slice(1)}
 
-/* ——— Render ——— */
+/* ===== Render ===== */
 function renderCards(){
   const t=i18n[state.lang];
   const grid=$("#cardsGrid"); grid.innerHTML="";
@@ -441,9 +445,7 @@ function applyI18n(){
   renderCards();
 }
 
-/* init */
-const PATH = location.pathname.replace(/\/+$/,''); if(PATH==='') location.replace('/en');
-document.documentElement.lang = (PATH.endsWith('/ru')?'ru':'en');
+/* ===== INIT (один раз) ===== */
 document.getElementById("year").textContent=new Date().getFullYear();
 applyI18n();
 </script>
