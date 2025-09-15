@@ -165,7 +165,6 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
   <div class="brand"><a href="/">AR</a></div>
   <nav class="nav">
     <a href="#work" data-i18n="navWork">Cases</a>
-    <a href="#about" data-i18n="navAbout">About</a>
     <a href="#contacts" data-i18n="navContact">Contacts</a>
   </nav>
   <div class="lang">
@@ -255,7 +254,7 @@ document.documentElement.lang = state.lang;
 
 /* ===== i18n ===== */
 const i18n = {
-  ru:{navWork:"Кейсы",navAbout:"Обо мне",navContact:"Контакты",
+  ru:{navWork:"Кейсы",navContact:"Контакты",
       kicker:"Head of Marketing / CMO",name:"АЛЁНА РАГОЗИНА",
       subtitle:"Маркетинговые стратегии · Запуски продуктов · Рост и бренд",
       lede:"Лидер маркетинга с опытом в IT, финтехе, FMCG, wellness и спорте. Строю стратегии и GTM, повышаю CR/LTV, снижаю CAC. Руковожу командами до 10 человек. Работаю на международных рынках.",
@@ -270,7 +269,7 @@ const i18n = {
       searchPlaceholder:"Поиск по названиям, меткам…",
       keys:{project:"Проект",input:"Контекст",work:"Решение",result:"Результат"},
       viewCase:"Ссылка"},
-  en:{navWork:"Cases",navAbout:"About",navContact:"Contacts",
+  en:{navWork:"Cases",navContact:"Contacts",
       kicker:"Head of Marketing / CMO",name:"ALENA RAGOZINA",
       subtitle:"Strategic Marketing · Product Launches · Growth & Brand",
       lede:"Marketing leader with experience in IT, fintech, FMCG, wellness, and sports. I build strategies and GTM plans, improve CR/LTV, and reduce CAC. I lead high-performing teams of up to 10 people and operate across international markets.",
@@ -293,21 +292,21 @@ const CASES = [
     title:{ru:"Darth Vader в Московской консерватории", en:"Darth Vader at the Moscow Conservatory"},
     cover:"/assets/zv.jpg",
     url:"https://www.youtube.com/watch?v=EP-x5dHOpS0",
-    category:"events",
-    tags:["event","PR","StarWars","MasterCard"],
+    category:"events", "Brand",
+    tags:["event","PR","StarWars","MasterCard","FinTech"],
     kv:{
       project:{ru:"MasterCard",en:"MasterCard"},
       input:{
-        ru:"Запрос MasterCard на проведение глобальной маркетинговой акции",
-        en:"MasterCard’s request for a global marketing activation"
+        ru:"Запрос MasterCard на проведение глобальной маркетинговой акции.",
+        en:"MasterCard’s request for a global marketing activation."
       },
       work:{
         ru:"Проведение 360° кампании, организация мероприятия в консерватории, продакшен и работа со СМИ.",
         en:"360° campaign: event at the Conservatory, full production and PR."
       },
       result:{
-        ru:"Увеличение продаж картами MasterCard на 45% в точках продаж-партнёров (кинотеатров и др). Упоминание во всех ТОП-СМИ. И это просто один из самых прекрасных кейсов!",
-        en:"+45% purchases with MasterCard at partner POS (cinemas, etc.). Coverage across top media."
+        ru:"Увеличение продаж картами MasterCard на 45% в точках продаж-партнёров (кинотеатров и др); упоминание в ТОП-10 СМИ. И это просто один из самых прекрасных кейсов!",
+        en:"+45% purchases with MasterCard at partner points (cinemas, etc.); сoverage across top media. And this is just one of the most amazing cases!"
       }
     }
   },
@@ -315,12 +314,12 @@ const CASES = [
     title:{ru:"Запуск нового маркетплейса товаров из США", en:"Launching a Marketplace for Goods from the USA"},
     cover:"/assets/qw.jpg",
     url:"https://qwixit.com/",
-    category:"gtm",
-    tags:["marketplace","launch","GTM"],
+    category:"gtm", "Brand",
+    tags:["marketplace","launch","GTM","e-commerce","B2С"],
     kv:{
       project:{ru:"Qwixit.com",en:"Qwixit.com"},
       input:{
-        ru:"Сложность использования услуг мейлфорвардера, большой срок принятия решения, отсутствие импульсивных покупок и ограничение в маркетинговых акциях на сами товары.",
+        ru:"Сложность использования услуг мейлфорвардера, большой срок принятия решения, отсутствие импульсивных покупок и ограничение маркетинговых акций на товары.",
         en:"Mail-forwarding complexity; long decision cycle; few impulse buys; promo restrictions on goods."
       },
       work:{
@@ -328,27 +327,27 @@ const CASES = [
         en:"Marketplace concept; GTM strategy, segmentation, acquisition channels, email funnels, referral. Lead stakeholder for 12 weeks from idea to launch."
       },
       result:{
-        ru:"— ROI ≈ +100% в первые 6 месяцев\n— Проект обогнал другие продукты мейлфорвардера за 3 месяца по количеству заказов\n— +15% привлечение новой аудитории через маркетплейс на другие продукты",
-        en:"— ROI ≈ +100% in the first 6 months\n— Outperformed other mail-forwarding products by orders in 3 months\n— +15% cross-acquisition to other products"
+        ru:"ROI ≈ +100% в первые 6 месяцев. Проект обогнал другие продукты мейлфорвардера за 3 месяца по количеству заказов. +15% привлечение новой аудитории через маркетплейс на другие продукты",
+        en:"ROI ≈ +100% in the first 6 months. Outperformed other mail-forwarding products by orders in 3 months. +15% cross-acquisition to other products"
       }
     }
   },
   { id:"pcht",
     title:{ru:"Рост органического трафика и SEO-рейтинга", en:"Organic Traffic & SEO Ranking Growth"},
     cover:"/assets/pcht.jpg",
-    url:"#",
-    category:"digital",
-    tags:["SEO","content","growth"],
+    url:"https://pochtoy.com",
+    category:"digital","Performance",
+    tags:["SEO","content","growth","e-commerce","B2С"],
     kv:{
       project:{ru:"Pochtoy.com",en:"Pochtoy.com"},
-      input:{ru:"Стагнация показателей SEO",en:"Stagnation in SEO metrics"},
+      input:{ru:"Стагнация показателей SEO.",en:"Stagnation in SEO metrics."},
       work:{
         ru:"Контент-оптимизация, линкбилдинг, локализация страниц, ускорение индексации. Ведение блога.",
         en:"Content optimisation, link-building, localisation, faster indexing. Blog management."
       },
       result:{
-        ru:"— +280% рост органического трафика\n— 38 ключей в ТОП-3 Google и 42 в Яндекс\n— +20% рост брендовых запросов",
-        en:"+280% organic traffic; 38 TOP-3 in Google and 42 in Yandex; +20% branded search"
+        ru:"+280% рост органического трафика; 38 ключей в ТОП-3 Google и 42 в Яндекс; +20% рост брендовых запросов.",
+        en:"+280% organic traffic; 38 TOP-3 in Google and 42 in Yandex; +20% branded search."
       }
     }
   },
@@ -356,8 +355,8 @@ const CASES = [
     title:{ru:"Снижение стоимости привлечения клиента", en:"Lowering Customer Acquisition Cost"},
     cover:"/assets/pb.jpg",
     url:"https://prostobox.com/",
-    category:"performance",
-    tags:["CRO","ads","CAC"],
+    category:"performance", "Digital",
+    tags:["CRO","ads","CAC","Acquisition","e-commerce","B2С"],
     kv:{
       project:{ru:"Pochtoy.com и Prostobox",en:"Pochtoy.com & Prostobox"},
       input:{
@@ -365,17 +364,63 @@ const CASES = [
         en:"High acquisition costs, insufficient traffic segmentation."
       },
       work:{
-        ru:"Запуск новых РК на micro-CGM аудитории, A/B-тестирование лендингов и контента, анализ конверсий воронки. Найдена более целевая ниша для таргетинга и более продающий контент у блогеров для масштабирования кампаний.",
-        en:"New campaigns to micro-CGM audiences, A/B testing of landings and content, funnel analysis. Found better targeting niches and creator content to scale."
+        ru:"Запуск новых РК на micro-CGM аудитории, A/B-тестирование лендингов и контента, анализ конверсий воронки. Поиск более целевой ниши для таргетинга и продающего контент у блогеров для масштабирования кампаний.",
+        en:"New campaigns to micro-CGM audiences, A/B testing of landings and content, funnel analysis. Search for a more targeting niches and creator content to scale."
       },
       result:{
-        ru:"— CAC снизился на 15%\n— +21% рост CR от клика к заказу\n— CPL снизился на 30%",
-        en:"— CAC −15%\n— Order CR +21%\n— CPL −30%"
+        ru:"CAC снизился на 15%; +21% рост CR от клика к заказу; CPL снизился на 30%",
+        en:"CAC −15%; Order CR +21%; CPL −30%"
       }
     }
   }
-];
-
+},
+{ id:"cskaleb",
+    title:{ru:"Повышение вовлечённости через эмоции и символику спортивного клуба", en:"Increasing engagement through emotions and sports club symbols"},
+    cover:"/assets/cskaleb.jpg",
+    url:"https://www.artlebedev.ru/cska/keyvisual/",
+    category:"Brand", "Events", "Retention",
+    tags:["sport","keyvisual","Retention","design","sportTech","B2С"],
+    kv:{
+      project:{ru:"ПХК ЦСКА",en:"PHC CSKA"},
+      input:{
+        ru:"Низкий уровень повторных посещений матчей, покупок мерча, отсутствует эмоциональная связь с брендом, в каждом канале взаимодействия с аудиторией своя визуальная подача бренда.",
+        en:"There is a low level of repeat visits to matches and merchandise purchases, and no emotional connection with the brand. Each channel has its own visual representation of the brand."
+      },
+      work:{
+        ru:"Редизайн фирменного стиля, разработка клубной символики, запуск новой линии сувениров и персонализированных писем болельщикам.",
+        en:"Redesign of the corporate identity, development of club symbols, and launch of a new line of souvenirs and personalized letters to fans."
+      },
+      result:{
+        ru:"+45% рост продаж мерча онлайн; +30% возврат пользователей на матчи и покупки матча на арене; LTV вырос с 4 800 ₽ до 9 200 ₽; +31% Engagement Rate; преобладание помолодевшей семейной аудитории (более платежеспособной).",
+        en:"+45% increase in online merch sales; +30% return of users to matches and match purchases in the arena; LTV increased from 4,800 ₽ to 9,200 ₽; +31% Engagement Rate; the predominance of a younger family audience (more paying)."
+      }
+    }
+  }
+},
+  { id:"EPP1",
+    title:{ru:"Спонсорские активации на локальном рынке", en:"Sponsored activations in the local market"},
+    cover:"/assets/EPP1.jpg",
+    url:"https://easypadel.com/",
+    category:"Brand", "Events", 
+    tags:["sport","sponsorship","Retention","engagement","cross-integration","easypadel","sportTech","IT","B2B","B2С"],
+    kv:{
+      project:{ru:"Easy Padel",en:"Easy Padel"},
+      input:{
+        ru:"Отсутствие узнаваемости бренда на локальном рынке среди b2b и b2c аудитории, мало по-настоящему интересных панельных мероприятий.",
+        en:"TLack of brand recognition in the local market among b2b and b2c audiences, and few truly interesting panel events."
+      },
+      work:{
+        ru:"Оформление пакетов спонсорства, кросс-интеграции в контенте, организация уникальных мероприятий на рынке.",
+        en:"Designing sponsorship packages, cross-integration in content, and organizing unique events in the market."
+      },
+      result:{
+        ru:"+Привлечено 8 премиум-брендов; дополнительная прибыль (бартер/PR) + 100+% ROI (окупаемость всех затрат на организацию и проведение); +25% рост brand mentions в социальных сетях.",
+        en:"8 premium brands were attracted; additional profit (barter/PR) + 100+% ROI (recoupment of all costs for organization and holding); +25% increase in brand mentions in social networks."
+      }
+    }
+  }
+},
+  
 /* ===== Helpers ===== */
 const $ = (s,c=document)=>c.querySelector(s);
 const $$ = (s,c=document)=>Array.from(c.querySelectorAll(s));
