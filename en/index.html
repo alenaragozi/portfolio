@@ -39,15 +39,17 @@ a:hover{filter:brightness(1.06)}
 .nav a{color:var(--muted);font-weight:600}
 .nav a:hover{color:#2f2f2f}
 
-/* язык — идеальная центровка */
+/* язык — идеальная центровка + единая анимация */
 .lang{display:flex;gap:8px}
 .lang a{
   display:flex;align-items:center;justify-content:center;
   height:var(--btn-h);min-width:var(--btn-h);padding:0 12px;
   border:1px solid var(--border);border-radius:var(--pill);
-  background:#fff;color:var(--ink);font-weight:700
+  background:#fff;color:var(--ink);font-weight:700;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 .lang a.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.lang a:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(90,195,194,.18);border-color:var(--accent)}
 
 /* ===== HERO ===== */
 .hero{border-top:1px solid var(--border);background:linear-gradient(180deg,#fbfcfe 0%,#fff 100%)}
@@ -65,8 +67,10 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
 .lede{margin:0 0 18px;max-width:65ch}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
 
-.btn{background:var(--accent);color:#fff;font-weight:700}
-.btn.ghost{background:#fff;border:1px solid var(--border);color:#0c3c3b}
+.btn{background:var(--accent);color:#fff;font-weight:700;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
+.btn.ghost{background:#fff;border:1px solid var(--border);color:#0c3c3b;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
 .btn:hover{box-shadow:0 6px 16px rgba(90,195,194,.24);transform:translateY(-1px)}
 .btn.ghost:hover{border-color:var(--accent);box-shadow:0 6px 16px rgba(90,195,194,.18);transform:translateY(-1px)}
 
@@ -84,8 +88,13 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
 
 /* ===== FILTERS ===== */
 .filters{display:flex;flex-wrap:wrap;gap:12px 12px;margin:8px 0 14px}
-.chip{border:1px solid var(--border);background:#fff;color:var(--ink);font-weight:700;white-space:nowrap}
+.chip{
+  border:1px solid var(--border);background:#fff;color:var(--ink);
+  font-weight:700;white-space:nowrap;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
 .chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.chip:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(90,195,194,.18);border-color:var(--accent)}
 
 /* ===== SEARCH ===== */
 .search{margin:12px 0 18px}
@@ -100,27 +109,21 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
 .card-media{position:relative;aspect-ratio:2/1;background:#eef2f6}
 .card-media img{width:100%;height:100%;object-fit:cover;display:block}
 
-/* Теги — маленькие, белые, молочный фон */
-.taglist{position:absolute;left:10px;bottom:10px;display:flex;gap:6px;flex-wrap:wrap}
-.tag{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:20px;padding:0 10px;border-radius:var(--pill);
-  font-size:11px;line-height:1;font-weight:400;
-  background:rgba(255,255,255,.55);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.25)
-}
+/* Теги на фото скрыты, но остаются в данных для поиска */
+.taglist{display:none !important}
 
 .card-body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}
 .card h3{margin:0;font-size:18px;color:#2f2f2f}
 .meta{color:var(--muted);font-size:13px}
 
-/* Компактные пары ключ-значение */
+/* Компактные пары ключ-значение — меньше горизонтальный зазор */
 .kv{
-  display:grid;grid-template-columns:140px 1fr;
-  column-gap:10px;row-gap:2px; /* ← плотнее */
-  font-size:14px;margin:2px 0   /* ← плотнее */
+  display:grid;grid-template-columns:120px 1fr;   /* было 140px */
+  column-gap:6px; row-gap:2px;                   /* было 10px / 2px */
+  font-size:14px;margin:2px 0
 }
 .kv .k{color:var(--muted);align-self:start}
-.kv .v{line-height:1.4}        /* ← плотнее текста */
+.kv .v{line-height:1.4}
 
 /* Стрелка — всегда внизу */
 .actions{
@@ -151,7 +154,7 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
   .features{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
   .cta{justify-content:center}
-  .kv{grid-template-columns:110px 1fr}
+  .kv{grid-template-columns:110px 1fr}          /* мобильная колонка ключей */
 }
 </style>
 </head>
@@ -439,6 +442,8 @@ function applyI18n(){
 }
 
 /* init */
+const PATH = location.pathname.replace(/\/+$/,''); if(PATH==='') location.replace('/en');
+document.documentElement.lang = (PATH.endsWith('/ru')?'ru':'en');
 document.getElementById("year").textContent=new Date().getFullYear();
 applyI18n();
 </script>
