@@ -89,7 +89,7 @@ h1{margin:0 0 10px;font-size:44px;line-height:1.1;color:#2f2f2f}
 /* ===== FILTERS ===== */
 .filters{display:flex;flex-wrap:wrap;gap:12px 12px;margin:8px 0 14px}
 .chip{
-  border:1px solid var(--border);background:#fff;color:#ink;
+  border:1px solid var(--border);background:#fff;color:var(--muted);
   font-weight:700;white-space:nowrap;
   transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
@@ -286,13 +286,13 @@ const i18n = {
       viewCase:"Link"}
 };
 
-/* ===== Data (6 cases) ===== */
+/* ===== Data (6 cases, multi-category) ===== */
 const CASES = [
   { id:"zv",
     title:{ru:"Darth Vader в Московской консерватории", en:"Darth Vader at the Moscow Conservatory"},
     cover:"/assets/zv.jpg",
     url:"https://www.youtube.com/watch?v=EP-x5dHOpS0",
-    category:"events",
+    categories:["events","brand"],
     tags:["event","PR","StarWars","MasterCard","FinTech"],
     kv:{
       project:{ru:"MasterCard",en:"MasterCard"},
@@ -314,7 +314,7 @@ const CASES = [
     title:{ru:"Запуск нового маркетплейса товаров из США", en:"Launching a Marketplace for Goods from the USA"},
     cover:"/assets/qw.jpg",
     url:"https://qwixit.com/",
-    category:"gtm",
+    categories:["gtm","brand"],
     tags:["marketplace","launch","GTM","e-commerce","B2C"],
     kv:{
       project:{ru:"Qwixit.com",en:"Qwixit.com"},
@@ -336,7 +336,7 @@ const CASES = [
     title:{ru:"Рост органического трафика и SEO-рейтинга", en:"Organic Traffic & SEO Ranking Growth"},
     cover:"/assets/pcht.jpg",
     url:"https://pochtoy.com",
-    category:"digital",
+    categories:["digital","performance"],
     tags:["SEO","content","growth","e-commerce","B2C"],
     kv:{
       project:{ru:"Pochtoy.com",en:"Pochtoy.com"},
@@ -355,7 +355,7 @@ const CASES = [
     title:{ru:"Снижение стоимости привлечения клиента", en:"Lowering Customer Acquisition Cost"},
     cover:"/assets/pb.jpg",
     url:"https://prostobox.com/",
-    category:"performance",
+    categories:["performance","digital"],
     tags:["CRO","ads","CAC","acquisition","e-commerce","B2C"],
     kv:{
       project:{ru:"Pochtoy.com и Prostobox",en:"Pochtoy.com & Prostobox"},
@@ -364,8 +364,8 @@ const CASES = [
         en:"High acquisition costs, insufficient traffic segmentation."
       },
       work:{
-        ru:"Запуск новых РК на micro-CGM аудитории, A/B-тестирование лендингов и контента, анализ конверсий воронки. Поиск более целевой ниши для таргетинга и продающего контента у блогеров для масштабирования кампаний.",
-        en:"New campaigns to micro-CGM audiences, A/B testing of landings and content, funnel analysis. Search for more targeted niches and creator content to scale."
+        ru:"Запуск новых РК на micro-CGM аудитории, A/B-тестирование лендингов и контента, анализ конверсий воронки. Поиск более целевых ниш и продающего контента у блогеров для масштабирования кампаний.",
+        en:"New campaigns to micro-CGM audiences, A/B testing of landings and content, funnel analysis. Finding more targeted niches and creator content to scale."
       },
       result:{
         ru:"CAC снизился на 15%; +21% рост CR от клика к заказу; CPL снизился на 30%",
@@ -377,7 +377,7 @@ const CASES = [
     title:{ru:"Повышение вовлечённости через эмоции и символику спортивного клуба", en:"Increasing engagement through emotions and sports club symbols"},
     cover:"/assets/cskaleb.jpg",
     url:"https://www.artlebedev.ru/cska/keyvisual/",
-    category:"retention",
+    categories:["brand","events","retention"],
     tags:["sport","keyvisual","retention","design","sportTech","B2C"],
     kv:{
       project:{ru:"ПХК ЦСКА",en:"PHC CSKA"},
@@ -399,7 +399,7 @@ const CASES = [
     title:{ru:"Спонсорские активации на локальном рынке", en:"Sponsored activations in the local market"},
     cover:"/assets/EPP1.jpg",
     url:"https://easypadel.com/",
-    category:"events",
+    categories:["brand","events"],
     tags:["sport","sponsorship","retention","engagement","cross-integration","easypadel","sportTech","IT","B2B","B2C"],
     kv:{
       project:{ru:"Easy Padel",en:"Easy Padel"},
@@ -431,7 +431,8 @@ function renderCards(){
   const q=(state.query||"").toLowerCase();
 
   const filtered = CASES.filter(c=>{
-    const okCat = state.filter==="all" || c.category===state.filter;
+    const cats = c.categories && c.categories.length ? c.categories : (c.category ? [c.category] : []);
+    const okCat = state.filter==="all" || cats.includes(state.filter);
     const hay = [
       c.title[state.lang],
       ...(c.tags||[]),
@@ -445,6 +446,10 @@ function renderCards(){
   });
 
   filtered.forEach(c=>{
+    const tLoc=i18n[state.lang];
+    const cats = c.categories && c.categories.length ? c.categories : (c.category ? [c.category] : []);
+    const catLabel = cats.map(k=>tLoc['cat'+cap(k)]||k).join(' · ');
+
     const el=document.createElement("article");
     el.className="card";
     el.innerHTML=`
@@ -454,15 +459,15 @@ function renderCards(){
       </div>
       <div class="card-body">
         <h3>${c.title[state.lang]}</h3>
-        <div class="meta">${t['cat'+cap(c.category)]||""}</div>
+        <div class="meta">${catLabel}</div>
 
-        <div class="kv"><div class="k">${t.keys.project}</div><div class="v">${c.kv.project[state.lang]}</div></div>
-        <div class="kv"><div class="k">${t.keys.input}</div><div class="v">${c.kv.input[state.lang]}</div></div>
-        <div class="kv"><div class="k">${t.keys.work}</div><div class="v">${c.kv.work[state.lang]}</div></div>
-        <div class="kv"><div class="k">${t.keys.result}</div><div class="v" style="white-space:pre-wrap">${c.kv.result[state.lang]}</div></div>
+        <div class="kv"><div class="k">${tLoc.keys.project}</div><div class="v">${c.kv.project[state.lang]}</div></div>
+        <div class="kv"><div class="k">${tLoc.keys.input}</div><div class="v">${c.kv.input[state.lang]}</div></div>
+        <div class="kv"><div class="k">${tLoc.keys.work}</div><div class="v">${c.kv.work[state.lang]}</div></div>
+        <div class="kv"><div class="k">${tLoc.keys.result}</div><div class="v" style="white-space:pre-wrap">${c.kv.result[state.lang]}</div></div>
       </div>
       <div class="actions">
-        <a class="link" href="${c.url}" target="_blank" rel="noopener" aria-label="${t.viewCase}"></a>
+        <a class="link" href="${c.url}" target="_blank" rel="noopener" aria-label="${tLoc.viewCase}"></a>
       </div>`;
     grid.appendChild(el);
   });
