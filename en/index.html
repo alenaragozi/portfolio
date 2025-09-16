@@ -288,28 +288,6 @@ const i18n = {
 
 /* ===== Data (6 cases, multi-category) ===== */
 const CASES = [
-  { id:"zv",
-    title:{ru:"Darth Vader в Московской консерватории", en:"Darth Vader at the Moscow Conservatory"},
-    cover:"/assets/zv.jpg",
-    url:"https://www.youtube.com/watch?v=EP-x5dHOpS0",
-    categories:["events","brand"],
-    tags:["event","PR","StarWars","MasterCard","FinTech"],
-    kv:{
-      project:{ru:"MasterCard",en:"MasterCard"},
-      input:{
-        ru:"Запрос MasterCard на проведение глобальной маркетинговой акции.",
-        en:"MasterCard’s request for a global marketing activation."
-      },
-      work:{
-        ru:"Проведение 360° кампании, организация мероприятия в консерватории, продакшен и работа со СМИ.",
-        en:"360° campaign: event at the Conservatory, full production and PR."
-      },
-      result:{
-        ru:"Увеличение продаж картами MasterCard на 45% в точках продаж-партнёров (кинотеатров и др); упоминание в ТОП-10 СМИ. И это просто один из самых прекрасных кейсов!",
-        en:"+45% purchases with MasterCard at partner points (cinemas, etc.); coverage across top media. And this is just one of the most amazing cases!"
-      }
-    }
-  },
   { id:"qw",
     title:{ru:"Запуск нового маркетплейса товаров из США", en:"Launching a Marketplace for Goods from the USA"},
     cover:"/assets/qw.jpg",
@@ -329,6 +307,94 @@ const CASES = [
       result:{
         ru:"ROI ≈ +100% в первые 6 месяцев. Проект обогнал другие продукты мейлфорвардера за 3 месяца по количеству заказов. +15% привлечение новой аудитории через маркетплейс на другие продукты.",
         en:"ROI ≈ +100% in the first 6 months. Outperformed other mail-forwarding products by orders in 3 months. +15% cross-acquisition to other products."
+      }
+    }
+  },
+  { id:"eppoz",
+    title:{ru:"Позиционирование бренда B2B/B2C платформы в регионе MENA", en:"Brand positioning of a B2B/B2C platform in MENA"},
+    cover:"/assets/eppoz.jpg",
+    url:"https://easypadel.com",
+    category:"brand",
+    tags:["brand","GTM","MENA","B2B","B2C"],
+    kv:{
+    project:{ru:"Easy Padel",en:"Easy Padel"},
+    input:{
+      ru:"Продукт находился на стадии MVP: не было знания о сервисе, айдентики, tone of voice и соцсетей. Требовалось сформировать узнаваемость бренда и подготовить платформу к масштабированию.",
+      en:"MVP stage: no awareness, no visual identity, no tone of voice, no social media presence. Needed brand awareness and platform readiness for scaling."
+    },
+    work:{
+      ru:"Аудит рынка; разработка бренд-гайда; внедрение tone of voice; создание соцсетей; визуальная концепция и упаковка каналов; серия партнёрских мероприятий.",
+      en:"Market audit; brand guide development; tone of voice implementation; social media creation; visual concept and packaging of all channels; series of partner events."
+    },
+    result:{
+      ru:"+5 тыс. пользователей; +2 тыс. подписчиков в Instagram; активные русскоязычное и локальное коммьюнити; рост органического трафика ×3; упоминаний ×2; среднее время сеанса ×4; узнаваемость среди B2B-клиентов +70%.",
+      en:"+5K users; +2K Instagram followers; active Russian- and local-speaking communities; 3× organic traffic growth; 2× mentions growth; 4× longer average session; +70% brand awareness among B2B clients."
+     }
+    }
+  },
+  { id:"epmon",
+  title:{ru:"Вывод продукта из MVP в фазу устойчивой монетизации", en:"Product transition from MVP to sustainable monetization"},
+  cover:"/assets/epmon.jpg",
+  url:"https://easypadel.com",
+  category:"gtm",
+  tags:["MVP","Go-to-Market","Easy Padel","sponsorship"],
+  kv:{
+    project:{ru:"Easy Padel",en:"Easy Padel"},
+    input:{
+      ru:"Старт продукта, отсутствие устойчивой выручки, нет букингов.",
+      en:"Product at MVP stage, no stable revenue, no bookings."
+    },
+    work:{
+      ru:"Аудит продукта; работа с командой разработки; настройка платёжной аналитики; создание продающего контента; совместная работа с отделом продаж над b2b-материалами и стратегией выхода в клубы; маркетинговые акции с локальными брендами («получи пачку мячей при бронировании через платформу»).",
+      en:"Product audit; collaboration with dev team; payment analytics setup; creation of sales-oriented content; support for sales team with B2B materials and club-entry strategy; marketing campaigns with local panel brands (“get a pack of balls with booking via platform”)."
+    },
+    result:{
+      ru:"MRR вырос за 6 месяцев до положительного значения при сохранении затрат; продукт внедрён в 42% падельных клубов Дубая за первые 90 дней; 8 крупных спонсорских мероприятий расширили клиентскую базу и узнаваемость бренда; привлечено $1M инвестиций.",
+      en:"MRR turned positive within 6 months with controlled costs; product adopted by 42% of Dubai padel clubs in first 90 days; 8 major sponsorship events expanded client base and brand awareness; $1M investment raised."
+    }
+  }
+},
+  { id:"epsp",
+    title:{ru:"Спонсорские активации на локальном рынке", en:"Sponsored activations in the local market"},
+    cover:"/assets/epsp.jpg",
+    url:"https://easypadel.com/",
+    categories:["brand","events"],
+    tags:["sport","sponsorship","retention","engagement","cross-integration","easypadel","sportTech","IT","B2B","B2C"],
+    kv:{
+      project:{ru:"Easy Padel",en:"Easy Padel"},
+      input:{
+        ru:"Низкая узнаваемость среди B2B/B2C; дефицит действительно интересных панельных мероприятий.",
+        en:"Low awareness across B2B/B2C; few truly engaging panels."
+      },
+      work:{
+        ru:"Пакеты спонсорства, кросс-интеграции в контент, организация уникальных событий.",
+        en:"Sponsorship packages, cross-content integrations, unique event series."
+      },
+      result:{
+        ru:"+8 премиум-брендов; доп. прибыль (бартер/PR) → 100%+ ROI; +25% brand mentions в соцсетях.",
+        en:"+8 premium brands; extra profit (barter/PR) → 100%+ ROI; +25% brand mentions on social."
+      }
+    }
+  },
+  { id:"zv",
+    title:{ru:"Darth Vader в Московской консерватории", en:"Darth Vader at the Moscow Conservatory"},
+    cover:"/assets/zv.jpg",
+    url:"https://www.youtube.com/watch?v=EP-x5dHOpS0",
+    categories:["events","brand"],
+    tags:["event","PR","StarWars","MasterCard","FinTech"],
+    kv:{
+      project:{ru:"MasterCard",en:"MasterCard"},
+      input:{
+        ru:"Запрос MasterCard на проведение глобальной маркетинговой акции.",
+        en:"MasterCard’s request for a global marketing activation."
+      },
+      work:{
+        ru:"Проведение 360° кампании, организация мероприятия в консерватории, продакшен и работа со СМИ.",
+        en:"360° campaign: event at the Conservatory, full production and PR."
+      },
+      result:{
+        ru:"Увеличение продаж картами MasterCard на 45% в точках продаж-партнёров (кинотеатров и др); упоминание в ТОП-10 СМИ. И это просто один из самых прекрасных кейсов!",
+        en:"+45% purchases with MasterCard at partner points (cinemas, etc.); coverage across top media. And this is just one of the most amazing cases!"
       }
     }
   },
@@ -357,7 +423,7 @@ const CASES = [
   { id:"pcht",
     title:{ru:"Рост органического трафика и SEO-рейтинга", en:"Organic Traffic & SEO Ranking Growth"},
     cover:"/assets/pcht.jpg",
-    url:"https://pochtoy.com",
+    url:"https://www.youtube.com/watch?v=BKmp0DkbuTs",
     categories:["digital","performance"],
     tags:["SEO","content","growth","e-commerce","B2C"],
     kv:{
@@ -399,7 +465,7 @@ const CASES = [
     title:{ru:"New Jersey Nets в Москве: открытие shop-in-shop NBA", en:"New Jersey Nets in Moscow: NBA shop-in-shop opening"},
     cover:"/assets/nba.jpg",
     url:"http://moscowrep.ru/?p=65",
-    categories:["event","brand","gtm"],
+    categories:["events","brand","gtm"],
     tags:["sport","retail","event","pr"],
     kv:{
       project:{ru:"NBA × Adidas",en:"NBA × Adidas"},
@@ -461,28 +527,160 @@ const CASES = [
       }
     }
   },
-  { id:"epsp",
-    title:{ru:"Спонсорские активации на локальном рынке", en:"Sponsored activations in the local market"},
-    cover:"/assets/epsp.jpg",
+  { id:"hs",
+    title:{ru:"Внедрение сквозной аналитики", en:"Implementation of end-to-end analytics"},
+    cover:"/assets/hs.jpg",
     url:"https://easypadel.com/",
-    categories:["brand","events"],
-    tags:["sport","sponsorship","retention","engagement","cross-integration","easypadel","sportTech","IT","B2B","B2C"],
+    category:"digital",
+    tags:["analytics","HubSpot","funnels","reporting"],
     kv:{
-      project:{ru:"Easy Padel",en:"Easy Padel"},
-      input:{
-        ru:"Низкая узнаваемость среди B2B/B2C; дефицит действительно интересных панельных мероприятий.",
-        en:"Low awareness across B2B/B2C; few truly engaging panels."
-      },
-      work:{
-        ru:"Пакеты спонсорства, кросс-интеграции в контент, организация уникальных событий.",
-        en:"Sponsorship packages, cross-content integrations, unique event series."
-      },
-      result:{
-        ru:"+8 премиум-брендов; доп. прибыль (бартер/PR) → 100%+ ROI; +25% brand mentions в соцсетях.",
-        en:"+8 premium brands; extra profit (barter/PR) → 100%+ ROI; +25% brand mentions on social."
-      }
+    project:{ru:"Easy Padel",en:"Easy Padel"},
+    input:{
+      ru:"Отсутствие сквозной аналитики, продвижение «вслепую».",
+      en:"Lack of end-to-end analytics, blind promotion."
+    },
+    work:{
+      ru:"Интеграция HubSpot, построение сквозных воронок и отчётности.",
+      en:"Integration of HubSpot, building end-to-end funnels and reporting."
+    },
+    result:{
+      ru:"+10–14% конверсии на каждом этапе; устранение «слепых зон»; +18% эффективности перераспределения бюджета.",
+      en:"+10-14% conversion at each stage; elimination of 'blind' spots; +18% efficiency of budget redistribution."
     }
   }
+},
+{ id:"epret",
+  title:{ru:"Удержание клиентов после первой регистрации", en:"Customer retention after first registration"},
+  cover:"/assets/epret.jpg",
+  url:"https://easypadel.com",
+  category:"retention",
+  tags:["retention","onboarding","gamification"],
+  kv:{
+    project:{ru:"Easy Padel",en:"Easy Padel"},
+    input:{
+      ru:"Много регистраций с низкой конверсией в букинги.",
+      en:"High number of registrations with low conversion into bookings."
+    },
+    work:{
+      ru:"Контент-сценарии onboarding; push-уведомления; геймификация; баллы за активность.",
+      en:"Onboarding content flows; push notifications; gamification; activity-based rewards."
+    },
+    result:{
+      ru:"+38% повторных букингов; +19% активных платящих пользователей.",
+      en:"+38% repeat bookings; +19% increase in active paying users."
+    }
+  }
+},
+  { id:"khl",
+  title:{ru:"Победа в номинации «Лучшая спонсорская активация» (Премия КХЛ)", en:"Winning the Best Sponsorship Activation Award (KHL)"},
+  cover:"/assets/khl.jpg",
+  url:"https://cska-hockey.ru",
+  category:"events",
+  tags:["CSKA","Rosneft","sponsorship","activation","KHL"],
+  kv:{
+    project:{ru:"ЦСКА × Роснефть",en:"CSKA × Rosneft"},
+    input:{
+      ru:"ЦСКА и «Роснефть» реализовывали интегрированную активацию в рамках Премии КХЛ и всего сезона.",
+      en:"CSKA and Rosneft needed an integrated activation for the KHL Awards and season-long sponsorship."
+    },
+    work:{
+      ru:"Совместные кампании хоккеистов и гонщиков; интеграции на ТВ, радио и digital; рекламная кампания Pulsar и Magnum; запуск маскотов; промо на матчах ЦСКА и АЗС «Роснефти».",
+      en:"Joint campaigns with hockey players and racing drivers; TV, radio, and digital integrations; Pulsar & Magnum ad campaign; mascots launch; promo at CSKA matches and Rosneft gas stations."
+    },
+    result:{
+      ru:"270+ млн охват, 200+ публикаций в соцсетях, широкое федеральное медиа-освещение, укрепление партнёрства ЦСКА–«Роснефть», рост лояльности аудитории и популяризация хоккея и автоспорта.",
+      en:"270M+ audience reach, 200+ social publications, wide federal media coverage, stronger CSKA–Rosneft partnership, positive brand perception, popularization of hockey and motorsport."
+    }
+  }
+},
+{ id:"incom",
+  title:{ru:"Увеличение продаж с email-канала", en:"Boosting sales via email channel"},
+  cover:"/assets/incom.jpg",
+  url:"https://www.incom.ru",
+  category:"performance",
+  tags:["email","segmentation","real estate","CRM"],
+  kv:{
+    project:{ru:"ИНКОМ-Недвижимость",en:"INCOM Real Estate"},
+    input:{
+      ru:"Низкие показатели email-маркетинга; скучный контент; отсутствие сегментации и триггерных коммуникаций.",
+      en:"Low email marketing performance; boring content; no segmentation or trigger communications."
+    },
+    work:{
+      ru:"Запуск еженедельного журнала с полезным контентом; внедрение триггерных сценариев (брошенные просмотры); поведенческая сегментация.",
+      en:"Launched weekly digest with useful content; implemented trigger flows (abandoned views); behavior-based segmentation."
+    },
+    result:{
+      ru:"8.5× рост сделок с email-канала; рост OR до 65%, CTR — 18%; рост подписок на рассылку до 200%.",
+      en:"8.5× growth in deals from email; OR up to 65%, CTR 18%; +200% mailing list growth."
+    }
+  }
+},
+{ id:"cskaev",
+  title:{ru:"Массовое привлечение на офлайн-турнир", en:"Mass offline tournament attendance drive"},
+  cover:"/assets/cskaev.jpg",
+  url:"https://cska-hockey.ru",
+  category:"events",
+  tags:["event","CSKA","MegaFon","merch","gamification"],
+  kv:{
+    project:{ru:"ХК ЦСКА / Мегафон",en:"CSKA Hockey Club / MegaFon"},
+    input:{
+      ru:"Регулярные одинаковые матчи; отсутствие яркого инфоповода; стагнация продаж текущей линейки мерча.",
+      en:"Regular matches lacked fresh info hooks; stagnating merchandise sales."
+    },
+    work:{
+      ru:"Креативная концепция; партнёрский PR; геймификация; лид-магниты; новая коллекция мерча (кобрендинг).",
+      en:"Creative concept; partner PR; gamification; lead magnets; new cobranded merchandise collection."
+    },
+    result:{
+      ru:"ROI от спонсоров 312%; рост продаж атрибутики +41%; база лидов +3 200 уникальных emails.",
+      en:"312% sponsor ROI; +41% merchandise sales; +3,200 unique leads (emails)."
+    }
+  }
+},
+{ id:"sochi",
+  title:{ru:"Олимпиада в Сочи 2014 — организация и брендирование", en:"Sochi 2014 Winter Olympics — Event Branding & Venue Design"},
+  cover:"/assets/sochi.jpg",
+  url:"https://www.olympics.com/ru/olympic-games/sochi-2014/videos",
+  category:"events",
+  tags:["Olympics","branding","event","Sochi2014"],
+  kv:{
+    project:{ru:"Зимние Олимпийские игры в Сочи 2014", en:"Sochi 2014 Winter Olympics"},
+    input:{
+      ru:"Один из ключевых подрядчиков Оргкомитета Олимпиады, масштабное брендирование объектов и мероприятий.",
+      en:"One of the key contractors of the Olympic Organizing Committee, large-scale branding of facilities and events."
+    },
+    work:{
+      ru:"Разработка и реализация визуальной айдентики площадок: навигация, оформление, зоны для СМИ, декор. Координация работы с подрядчиками и международными партнёрами.",
+      en:"Development and implementation of the visual identity of the venues: navigation, design, media areas, and decor. Coordination of work with contractors and international partners."
+    },
+    result:{
+      ru:"Единый и узнаваемый визуальный стиль на всех площадках; успешная реализация крупнейшего спортивного события мирового уровня.",
+      en:"A unified and recognizable visual style on all venues; successful implementation of a major global sporting event."
+    }
+  }
+},
+{ id:"team",
+  title:{ru:"Построение маркетингового департамента", en:"Building a Marketing Department"},
+  cover:"/assets/team.jpg",
+  url:"https://easypadel.com",
+  category:"team",
+  tags:["team","OKR","KPI","management"],
+  kv:{
+    project:{ru:"Easy Padel", en:"Easy Padel"},
+    input:{
+      ru:"Отсутствие отдела; несформированный состав; нехватка понимания целей и процессов.",
+      en:"No department in place; unclear structure; lack of goals and processes."
+    },
+    work:{
+      ru:"Рекрутинг; матрица компетенций; внедрение OKR и KPI.",
+      en:"Recruitment; competency matrix; implementation of OKRs and KPIs."
+    },
+    result:{
+      ru:"Команда 10 человек (от 0 до 10 за 3 месяца); OKR-выполнение 80% по всем направлениям; текучесть 0% за весь период; замена неэффективных сотрудников на более результативных.",
+      en:"Team of 10 built in 3 months (from 0 to 10); 80% OKR completion across all areas; 0% turnover during the period; replaced underperformers with more effective hires."
+    }
+  }
+}
 ];
 
 /* ===== Helpers ===== */
